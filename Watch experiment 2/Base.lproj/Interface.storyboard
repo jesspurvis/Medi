@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14868" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eeE-Cd-wUG">
+    <device id="watch38"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14643"/>
+    </dependencies>
+    <scenes>
+        <!--Hosting Controller-->
+        <scene sceneID="RUd-og-cv4">
+            <objects>
+                <hostingController id="NBu-mt-KyX" customClass="HostingController" customModule="Watch_experiment_2" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="187" y="141"/>
+        </scene>
+        <!--heart.fill-->
+        <scene sceneID="I4c-uQ-2y2">
+            <objects>
+                <controller backgroundImage="heart.fill" catalog="system" contentMode="scaleAspectFit" animationDuration="6" id="eeE-Cd-wUG">
+                    <items>
+                        <timer alignment="center" verticalAlignment="center" textAlignment="center" id="Yay-sP-kyj">
+                            <calendarUnit key="units" minute="YES" second="YES"/>
+                        </timer>
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="Begin" id="lNq-R6-T9N"/>
+                    </items>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="521" y="111"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="eXb-UN-Cd0" kind="relationship" relationship="dynamicInteractiveNotificationInterface" id="mpB-YA-K8N"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="187" y="462"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="Niz-AI-uX2">
+            <objects>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="Watch_experiment_2" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="488" y="462"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="heart.fill" catalog="system" width="64" height="56"/>
+    </resources>
+</document>
