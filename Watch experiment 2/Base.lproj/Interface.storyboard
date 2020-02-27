@@ -6,53 +6,53 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14643"/>
     </dependencies>
     <scenes>
-        <!--Hosting Controller-->
-        <scene sceneID="RUd-og-cv4">
-            <objects>
-                <hostingController id="NBu-mt-KyX" customClass="HostingController" customModule="Watch_experiment_2" customModuleProvider="target"/>
-            </objects>
-            <point key="canvasLocation" x="187" y="141"/>
-        </scene>
-        <!--heart.fill-->
+        <!--watchscreen-->
         <scene sceneID="I4c-uQ-2y2">
             <objects>
-                <controller backgroundImage="heart.fill" catalog="system" contentMode="scaleAspectFit" animationDuration="6" id="eeE-Cd-wUG">
+                <controller identifier="watchscreen" backgroundImage="annie-spratt-8mqOw4DBBSg-unsplash" contentMode="scaleAspectFill" initiallyAnimated="NO" animationDuration="6" id="eeE-Cd-wUG" customClass="InterfaceController" customModule="Watch_experiment_2_Extension">
                     <items>
-                        <timer alignment="center" verticalAlignment="center" textAlignment="center" id="Yay-sP-kyj">
+                        <timer width="93" height="27" alignment="center" verticalAlignment="center" textAlignment="center" baselineAdjustment="alignCenters" id="Yay-sP-kyj">
+                            <fontDescription key="font" style="UICTFontTextStyleTitle0"/>
                             <calendarUnit key="units" minute="YES" second="YES"/>
                         </timer>
-                        <button width="1" alignment="center" verticalAlignment="bottom" title="Begin" id="lNq-R6-T9N"/>
+                        <imageView width="80" height="80" alignment="center" verticalAlignment="center" image="heart.fill" catalog="system" contentMode="scaleAspectFit" id="IpI-qL-qiJ">
+                            <color key="tintColor" red="1" green="0.19320292350485113" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </imageView>
+                        <label alignment="left" text="Heartrate" id="u2u-C9-Vlk"/>
+                        <button width="54" alignment="center" verticalAlignment="bottom" title="Begin" id="lNq-R6-T9N">
+                            <connections>
+                                <segue destination="2Og-dp-l5I" kind="push" id="SBQ-wg-TsI"/>
+                            </connections>
+                        </button>
                     </items>
-                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="HeartrateLabel" destination="u2u-C9-Vlk" id="Oa9-Qt-Spe"/>
+                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="521" y="111"/>
+            <point key="canvasLocation" x="532" y="111"/>
         </scene>
-        <!--Static Notification Interface Controller-->
-        <scene sceneID="AEw-b0-oYE">
+        <!--watchscreen2-->
+        <scene sceneID="d6b-dV-KL3">
             <objects>
-                <notificationController id="YCC-NB-fut">
+                <controller identifier="watchscreen2" backgroundImage="annie-spratt-8mqOw4DBBSg-unsplash" contentMode="scaleAspectFill" initiallyAnimated="NO" animationDuration="6" id="2Og-dp-l5I">
                     <items>
-                        <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW"/>
+                        <timer width="93" height="27" alignment="center" verticalAlignment="center" textAlignment="center" baselineAdjustment="alignCenters" previewedSeconds="3569" id="FrD-LB-U6T">
+                            <fontDescription key="font" style="UICTFontTextStyleTitle0"/>
+                            <calendarUnit key="units" minute="YES" second="YES"/>
+                        </timer>
+                        <imageView width="80" height="80" alignment="center" verticalAlignment="center" image="heart.fill" catalog="system" contentMode="scaleAspectFit" id="qT1-j8-rNX">
+                            <color key="tintColor" red="1" green="0.19320292350000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </imageView>
+                        <button width="61" alignment="center" verticalAlignment="bottom" title="Pause" id="EVO-E0-n0N"/>
                     </items>
-                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
-                    <connections>
-                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
-                        <segue destination="eXb-UN-Cd0" kind="relationship" relationship="dynamicInteractiveNotificationInterface" id="mpB-YA-K8N"/>
-                    </connections>
-                </notificationController>
+                </controller>
             </objects>
-            <point key="canvasLocation" x="187" y="462"/>
-        </scene>
-        <!--Notification Controller-->
-        <scene sceneID="Niz-AI-uX2">
-            <objects>
-                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="Watch_experiment_2" customModuleProvider="target"/>
-            </objects>
-            <point key="canvasLocation" x="488" y="462"/>
+            <point key="canvasLocation" x="830" y="101"/>
         </scene>
     </scenes>
     <resources>
+        <image name="annie-spratt-8mqOw4DBBSg-unsplash" width="2991" height="2991"/>
         <image name="heart.fill" catalog="system" width="64" height="56"/>
     </resources>
 </document>
