@@ -32,5 +32,9 @@
 	</dict>
 	<key>WKExtensionDelegateClassName</key>
 	<string>$(PRODUCT_MODULE_NAME).ExtensionDelegate</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Meditator wants to access your heartrate </string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Meditator wants to access your heartrate </string>
 </dict>
 </plist>

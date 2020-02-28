@@ -19,20 +19,12 @@ class InterfaceController: WKInterfaceController {
     
     var healthStore : HKHealthStore?
     
+    var lastHeartRate = 0.0
+    let beatCountPerMinute = HKUnit(from: "count/min")
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
-        
-        
-        let sampleType: Set<HKSampleType> = [HKSampleType.quantityType(forIdentifier: .heartRate)!]
-        healthStore = HKHealthStore()
-        
-        healthStore?.requestAuthorization(toShare: sampleType, read: sampleType, completion: { (success, error) in
-            if success {
-                self.startHeartRateQuery(quantityTypeIdentifier: .heartRate)
-            }
-        })
-        
+
         //Config interface here
     }
 
@@ -45,34 +37,49 @@ class InterfaceController: WKInterfaceController {
         
         private func startHeartRateQuery(quantityTypeIdentifier: HKQuantityTypeIdentifier) {
             
-            // 1
+            // Data is only needed from local device
             let devicePredicate = HKQuery.predicateForObjects(from: [HKDevice.local()])
             
-            // 2
+            // Handle query updates
             let updateHandler: (HKAnchoredObjectQuery, [HKSample]?, [HKDeletedObject]?, HKQueryAnchor?, Error?) -> Void = {
                 query, samples, deletedObjects, queryAnchor, error in
                 
-                // 3
+                // Take a sample from this query
                 guard let samples = samples as? [HKQuantitySample] else { return }
                 
                 self.process(samples, type: quantityTypeIdentifier)
             }
             
-            // 4
+            // Create a query for heart rate on local device predicate
             let query = HKAnchoredObjectQuery(type: HKObjectType.quantityType(forIdentifier: quantityTypeIdentifier)!, predicate: devicePredicate, anchor: nil, limit: HKObjectQueryNoLimit, resultsHandler: updateHandler)
             
             query.updateHandler = updateHandler
             
-            // 5
+            // Query start
             healthStore?.execute(query)
      
         }
         
         private func process(_ samples: [HKQuantitySample], type: HKQuantityTypeIdentifier) {
+           
+            for sample in samples{
+                if type == .heartRate {
+                    lastHeartRate = sample.quantity.doubleValue(for: beatCountPerMinute)
+                    print("Last heart rate was: \(lastHeartRate)")
+                
+                }
+                print("Function called")
+                
+                updateHeartRateLabel()
+                //updateHeartRateSpeedLabel()
+            }
      
         }
-        
+        //Update string showing heart rate
         private func updateHeartRateLabel() {
+            let heartRate = String(Int(lastHeartRate))
+            HeartrateLabel.setText(heartRate)
+            print("Function called")
      
         }
         
@@ -80,4 +87,12 @@ class InterfaceController: WKInterfaceController {
             
         }
 
+    @IBAction func BeginTapped() {
+        let sampleType: Set<HKSampleType> = [HKSampleType.quantityType(forIdentifier: .heartRate)!]
+        healthStore = HKHealthStore()
+        
+        
+        self.startHeartRateQuery(quantityTypeIdentifier: .heartRate)
+
+    }
 }

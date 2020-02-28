@@ -9,7 +9,7 @@
         <!--watchscreen-->
         <scene sceneID="I4c-uQ-2y2">
             <objects>
-                <controller identifier="watchscreen" backgroundImage="annie-spratt-8mqOw4DBBSg-unsplash" contentMode="scaleAspectFill" initiallyAnimated="NO" animationDuration="6" id="eeE-Cd-wUG" customClass="InterfaceController" customModule="Watch_experiment_2_Extension">
+                <controller identifier="watchscreen" backgroundImage="annie-spratt-8mqOw4DBBSg-unsplash" contentMode="scaleAspectFill" initiallyAnimated="NO" animationDuration="6" id="eeE-Cd-wUG" customClass="InterfaceController" customModule="Watch_experiment_2" customModuleProvider="target">
                     <items>
                         <timer width="93" height="27" alignment="center" verticalAlignment="center" textAlignment="center" baselineAdjustment="alignCenters" id="Yay-sP-kyj">
                             <fontDescription key="font" style="UICTFontTextStyleTitle0"/>
@@ -18,10 +18,10 @@
                         <imageView width="80" height="80" alignment="center" verticalAlignment="center" image="heart.fill" catalog="system" contentMode="scaleAspectFit" id="IpI-qL-qiJ">
                             <color key="tintColor" red="1" green="0.19320292350485113" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </imageView>
-                        <label alignment="left" text="Heartrate" id="u2u-C9-Vlk"/>
+                        <label alignment="left" id="u2u-C9-Vlk"/>
                         <button width="54" alignment="center" verticalAlignment="bottom" title="Begin" id="lNq-R6-T9N">
                             <connections>
-                                <segue destination="2Og-dp-l5I" kind="push" id="SBQ-wg-TsI"/>
+                                <action selector="BeginTapped" destination="eeE-Cd-wUG" id="qTz-3g-eRP"/>
                             </connections>
                         </button>
                     </items>
@@ -31,24 +31,6 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="532" y="111"/>
-        </scene>
-        <!--watchscreen2-->
-        <scene sceneID="d6b-dV-KL3">
-            <objects>
-                <controller identifier="watchscreen2" backgroundImage="annie-spratt-8mqOw4DBBSg-unsplash" contentMode="scaleAspectFill" initiallyAnimated="NO" animationDuration="6" id="2Og-dp-l5I">
-                    <items>
-                        <timer width="93" height="27" alignment="center" verticalAlignment="center" textAlignment="center" baselineAdjustment="alignCenters" previewedSeconds="3569" id="FrD-LB-U6T">
-                            <fontDescription key="font" style="UICTFontTextStyleTitle0"/>
-                            <calendarUnit key="units" minute="YES" second="YES"/>
-                        </timer>
-                        <imageView width="80" height="80" alignment="center" verticalAlignment="center" image="heart.fill" catalog="system" contentMode="scaleAspectFit" id="qT1-j8-rNX">
-                            <color key="tintColor" red="1" green="0.19320292350000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </imageView>
-                        <button width="61" alignment="center" verticalAlignment="bottom" title="Pause" id="EVO-E0-n0N"/>
-                    </items>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="830" y="101"/>
         </scene>
     </scenes>
     <resources>

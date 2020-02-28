@@ -7,14 +7,36 @@
 //
 
 import UIKit
+import HealthKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    func applicationShouldRequestHealthAuthorization(_ application: UIApplication) {
+        let healthStore = HKHealthStore()
+        healthStore.handleAuthorizationForExtension { (success, error) in
+        }
+    }
+    
+     func requestHealthKitPermission() {
+
+      let sampleType: Set = [HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!,]
+        
+        let healthStore = HKHealthStore()
+            
+        healthStore.requestAuthorization(toShare: sampleType, read: sampleType) { (success, error) in
+            if let error = error {
+                print("Error requesting health kit authorization: \(error)")
+            }
+        }
+
+    }
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        self.requestHealthKitPermission()
         // Override point for customization after application launch.
         return true
     }
