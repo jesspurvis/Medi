@@ -22,6 +22,7 @@ class InterfaceController: WKInterfaceController {
     
     var lastHeartRate = 0.0
     let beatCountPerMinute = HKUnit(from: "count/min")
+    //test
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
