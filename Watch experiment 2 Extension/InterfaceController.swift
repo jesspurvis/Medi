@@ -15,6 +15,7 @@ import WatchKit
 
 class InterfaceController: WKInterfaceController {
     
+    @IBOutlet weak var HeartImage: WKInterfaceImage!
     @IBOutlet weak var HeartrateLabel: WKInterfaceLabel!
     
     var healthStore : HKHealthStore?
@@ -24,6 +25,17 @@ class InterfaceController: WKInterfaceController {
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        
+        let sampleType: Set<HKSampleType> = [HKSampleType.quantityType(forIdentifier: .heartRate)!]
+        healthStore = HKHealthStore()
+        healthStore?.requestAuthorization(toShare: sampleType, read: sampleType, completion: { (success, error) in
+            if success {
+                self.startHeartRateQuery(quantityTypeIdentifier: .heartRate)
+            }
+        })
+        
+        
+        //self.startHeartRateQuery(quantityTypeIdentifier: .heartRate)
 
         //Config interface here
     }
@@ -57,6 +69,7 @@ class InterfaceController: WKInterfaceController {
             
             // Query start
             healthStore?.execute(query)
+            
      
         }
         
@@ -65,7 +78,7 @@ class InterfaceController: WKInterfaceController {
             for sample in samples{
                 if type == .heartRate {
                     lastHeartRate = sample.quantity.doubleValue(for: beatCountPerMinute)
-                    print("Last heart rate was: \(lastHeartRate)")
+                    
                 
                 }
                 print("Function called")
@@ -88,11 +101,7 @@ class InterfaceController: WKInterfaceController {
         }
 
     @IBAction func BeginTapped() {
-        let sampleType: Set<HKSampleType> = [HKSampleType.quantityType(forIdentifier: .heartRate)!]
-        healthStore = HKHealthStore()
         
-        
-        self.startHeartRateQuery(quantityTypeIdentifier: .heartRate)
 
     }
 }

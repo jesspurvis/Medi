@@ -14,7 +14,6 @@
 		B29D7B702345F2EE0092AA23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B29D7B6E2345F2EE0092AA23 /* LaunchScreen.storyboard */; };
 		B29D7B7B2345F2EE0092AA23 /* Watch_ExperimentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29D7B7A2345F2EE0092AA23 /* Watch_ExperimentsTests.swift */; };
 		B29D7B862345F2EE0092AA23 /* Watch_ExperimentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29D7B852345F2EE0092AA23 /* Watch_ExperimentsUITests.swift */; };
-		B2C35C442406F3B600318BA9 /* BreatheTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C35C432406F3B600318BA9 /* BreatheTask.swift */; };
 		B2C35C592407308600318BA9 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C35C582407308600318BA9 /* HealthKit.framework */; };
 		B2C35C5B2407FF8100318BA9 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C35C5A2407FF8100318BA9 /* InterfaceController.swift */; };
 		B2C35C5F24095E3D00318BA9 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C35C5E24095E3D00318BA9 /* HealthKit.framework */; };
@@ -123,7 +122,6 @@
 		B29D7B812345F2EE0092AA23 /* Watch ExperimentsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Watch ExperimentsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B29D7B852345F2EE0092AA23 /* Watch_ExperimentsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_ExperimentsUITests.swift; sourceTree = "<group>"; };
 		B29D7B872345F2EE0092AA23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B2C35C432406F3B600318BA9 /* BreatheTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheTask.swift; sourceTree = "<group>"; };
 		B2C35C572407308600318BA9 /* Meditator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Meditator.entitlements; sourceTree = "<group>"; };
 		B2C35C582407308600318BA9 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		B2C35C5A2407FF8100318BA9 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
@@ -208,7 +206,6 @@
 				B2C35C572407308600318BA9 /* Meditator.entitlements */,
 				B29D7B692345F2EB0092AA23 /* Main.storyboard */,
 				B29D7B652345F2EB0092AA23 /* AppDelegate.swift */,
-				B2C35C432406F3B600318BA9 /* BreatheTask.swift */,
 				B29D7B672345F2EB0092AA23 /* ViewController.swift */,
 				B29D7B6C2345F2EE0092AA23 /* Assets.xcassets */,
 				B29D7B6E2345F2EE0092AA23 /* LaunchScreen.storyboard */,
@@ -475,7 +472,6 @@
 			files = (
 				B29D7B682345F2EB0092AA23 /* ViewController.swift in Sources */,
 				B29D7B662345F2EB0092AA23 /* AppDelegate.swift in Sources */,
-				B2C35C442406F3B600318BA9 /* BreatheTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

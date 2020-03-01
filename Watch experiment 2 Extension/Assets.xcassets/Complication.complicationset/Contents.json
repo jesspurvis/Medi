@@ -31,6 +31,9 @@
       "role" : "graphic-large-rectangular"
     },
     {
+      "filename" : "medi cropped.imageset"
+    },
+    {
       "idiom" : "watch",
       "filename" : "Modular.imageset",
       "role" : "modular"

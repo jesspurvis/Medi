@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14868" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eeE-Cd-wUG">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eeE-Cd-wUG">
     <device id="watch38"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14643"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="15501"/>
     </dependencies>
     <scenes>
         <!--watchscreen-->
         <scene sceneID="I4c-uQ-2y2">
             <objects>
-                <controller identifier="watchscreen" backgroundImage="annie-spratt-8mqOw4DBBSg-unsplash" contentMode="scaleAspectFill" initiallyAnimated="NO" animationDuration="6" id="eeE-Cd-wUG" customClass="InterfaceController" customModule="Watch_experiment_2" customModuleProvider="target">
+                <controller identifier="watchscreen" backgroundImage="annie-spratt-8mqOw4DBBSg-unsplash" contentMode="scaleAspectFill" initiallyAnimated="NO" animationDuration="6" fullBounds="YES" fullScreen="YES" id="eeE-Cd-wUG" customClass="InterfaceController" customModule="Watch_experiment_2" customModuleProvider="target">
                     <items>
-                        <timer width="93" height="27" alignment="center" verticalAlignment="center" textAlignment="center" baselineAdjustment="alignCenters" id="Yay-sP-kyj">
-                            <fontDescription key="font" style="UICTFontTextStyleTitle0"/>
-                            <calendarUnit key="units" minute="YES" second="YES"/>
-                        </timer>
-                        <imageView width="80" height="80" alignment="center" verticalAlignment="center" image="heart.fill" catalog="system" contentMode="scaleAspectFit" id="IpI-qL-qiJ">
+                        <label alignment="center" text="Last heart rate was:" textAlignment="center" id="tt5-Vi-VKk">
+                            <fontDescription key="font" type="boldSystem" pointSize="11"/>
+                        </label>
+                        <label width="1" alignment="center" verticalAlignment="center" text="0" textAlignment="center" baselineAdjustment="alignCenters" id="eew-Ij-AY0">
+                            <fontDescription key="font" type="system" pointSize="20"/>
+                        </label>
+                        <imageView width="80" height="80" alignment="center" verticalAlignment="center" image="heart.fill" catalog="system" contentMode="scaleAspectFit" animationDuration="3" id="IpI-qL-qiJ">
                             <color key="tintColor" red="1" green="0.19320292350485113" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </imageView>
-                        <label alignment="left" id="u2u-C9-Vlk"/>
                         <button width="54" alignment="center" verticalAlignment="bottom" title="Begin" id="lNq-R6-T9N">
                             <connections>
                                 <action selector="BeginTapped" destination="eeE-Cd-wUG" id="qTz-3g-eRP"/>
@@ -26,15 +27,16 @@
                         </button>
                     </items>
                     <connections>
-                        <outlet property="HeartrateLabel" destination="u2u-C9-Vlk" id="Oa9-Qt-Spe"/>
+                        <outlet property="HeartImage" destination="IpI-qL-qiJ" id="atp-dE-JZ8"/>
+                        <outlet property="HeartrateLabel" destination="eew-Ij-AY0" id="Qxi-9U-zWj"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="532" y="111"/>
+            <point key="canvasLocation" x="532" y="108"/>
         </scene>
     </scenes>
     <resources>
         <image name="annie-spratt-8mqOw4DBBSg-unsplash" width="2991" height="2991"/>
-        <image name="heart.fill" catalog="system" width="64" height="56"/>
+        <image name="heart.fill" catalog="system" width="64" height="52"/>
     </resources>
 </document>
