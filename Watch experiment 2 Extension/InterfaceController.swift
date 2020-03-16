@@ -7,18 +7,40 @@
 //
 
 import SwiftUI
-
-
 import Foundation
 import HealthKit
 import WatchKit
+import WatchConnectivity
 
-class InterfaceController: WKInterfaceController {
+class InterfaceController: WKInterfaceController, WCSessionDelegate {
+
+    
+    @IBOutlet weak var SecondsLabel: WKInterfaceLabel!
     
     @IBOutlet weak var HeartImage: WKInterfaceImage!
     @IBOutlet weak var HeartrateLabel: WKInterfaceLabel!
+   
+    
+    @IBOutlet weak var BeginButton: WKInterfaceButton!
     
     var healthStore : HKHealthStore?
+    
+    var wcSession : WCSession!
+    
+    
+    
+
+    var timer: Timer!
+    
+    var seconds = 80
+    
+  
+  
+    var began =  false
+    
+  
+    
+    
     
     var lastHeartRate = 0.0
     let beatCountPerMinute = HKUnit(from: "count/min")
@@ -26,6 +48,7 @@ class InterfaceController: WKInterfaceController {
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        SecondsLabel.setText(timeString(time: TimeInterval(seconds)))
         
         let sampleType: Set<HKSampleType> = [HKSampleType.quantityType(forIdentifier: .heartRate)!]
         healthStore = HKHealthStore()
@@ -34,19 +57,27 @@ class InterfaceController: WKInterfaceController {
                 self.startHeartRateQuery(quantityTypeIdentifier: .heartRate)
             }
         })
+        updatetimer()
         
-        
-        //self.startHeartRateQuery(quantityTypeIdentifier: .heartRate)
 
         //Config interface here
     }
-
     
     
         override func didDeactivate() {
             // This method is called when watch view controller is no longer visible
             super.didDeactivate()
         }
+    
+    
+        override func willActivate(){
+            super.willActivate()
+            wcSession = WCSession.default
+            wcSession.delegate = self
+            wcSession.activate()
+        }
+    
+    
         
         private func startHeartRateQuery(quantityTypeIdentifier: HKQuantityTypeIdentifier) {
             
@@ -79,14 +110,30 @@ class InterfaceController: WKInterfaceController {
             for sample in samples{
                 if type == .heartRate {
                     lastHeartRate = sample.quantity.doubleValue(for: beatCountPerMinute)
-                    
-                
                 }
+                
+                let completion: ((Bool, Error?) -> Void) = {
+                    (success, error) -> Void in
+
+                    if !success {
+                        print("An error occured saving the Heart Rate sample \(sample). \(String(describing: error)).")
+                        abort()
+                    }
+                }
+                
+                healthStore?.save(samples, withCompletion: completion)
+                
                 print("Function called")
+              
                 
                 updateHeartRateLabel()
+               
                 //updateHeartRateSpeedLabel()
             }
+            
+            //let average =
+            
+            //print(average)
      
         }
         //Update string showing heart rate
@@ -97,12 +144,73 @@ class InterfaceController: WKInterfaceController {
      
         }
         
-        private func updateHeartRateSpeedLabel() {
+
             
+    //Timer countdown methods
+    
+    func runTimer(){
+        //For every second that passes, call the update timer method
+    timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updatetimer), userInfo: nil, repeats: true)
+    }
+    
+    func timeString(time:TimeInterval) -> String {
+    
+    let minutes = Int(time) / 60 % 60
+    let seconds = Int(time) % 60
+    return String(format:"%02i:%02i", minutes, seconds)
+    }
+    
+    
+    @objc func updatetimer(){
+        if seconds < 30 {
+            
+            //SecondsLabel.setText("Finish!")
+            pushController(withName: "View2", context: nil)
+            timer.invalidate()
+            
+            //Context is the data I might want to add
         }
+        
+        else{
+        seconds -= 1
+        SecondsLabel.setText(timeString(time: TimeInterval(seconds)))}
+        
+    }
 
     @IBAction func BeginTapped() {
+        if began == true{
+            
+            BeginButton.setTitle("Start")
+            //SessionTimer.start()
+            timer.invalidate()
+            
+            began = false
+        }
+        else{
+            BeginButton.setTitle("Stop")
+            //SessionTimer.stop()
+            began = true
+            runTimer()
+            
+        }
         
-
     }
+    
+    
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        let timer = message["timeLength"] as! String
+        seconds = Int(timer)!
+        updatetimer()
+        
+        
+    }
+    
+    
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+    
+    
 }
