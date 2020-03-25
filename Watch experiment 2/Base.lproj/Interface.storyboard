@@ -1,11 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eeE-Cd-wUG">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SFg-Wp-Ckz">
     <device id="watch38"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="15501"/>
     </dependencies>
     <scenes>
+        <!--initialView-->
+        <scene sceneID="Fog-gd-C0w">
+            <objects>
+                <controller identifier="initialView" backgroundImage="annie-spratt-8mqOw4DBBSg-unsplash" fullBounds="YES" fullScreen="YES" id="SFg-Wp-Ckz" customClass="InitialViewController" customModule="Watch_experiment_2_Extension">
+                    <items>
+                        <label alignment="center" text="Welcome" id="gQq-RK-SkU">
+                            <fontDescription key="font" type="italicSystem" weight="bold" pointSize="30"/>
+                        </label>
+                        <slider width="1" alignment="left" continuous="YES" value="60" minimum="60" maximum="360" steps="10" id="AKy-yv-LVo">
+                            <connections>
+                                <action selector="SliderChanged:" destination="SFg-Wp-Ckz" id="wK5-dz-Hw2"/>
+                            </connections>
+                        </slider>
+                        <label alignment="right" text="1:00" id="vpW-XT-Y0N"/>
+                        <button alignment="center" verticalAlignment="bottom" title="Next" id="5B4-j5-clx">
+                            <fontDescription key="font" type="italicSystem" weight="semibold" pointSize="23"/>
+                            <connections>
+                                <action selector="StartSession" destination="SFg-Wp-Ckz" id="8yl-Ej-Thv"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="timeLabel" destination="vpW-XT-Y0N" id="OU0-0P-Uol"/>
+                        <outlet property="timeSlider" destination="AKy-yv-LVo" id="sBA-Lb-hpX"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="171" y="84"/>
+        </scene>
         <!--watchscreen-->
         <scene sceneID="I4c-uQ-2y2">
             <objects>
@@ -15,7 +44,7 @@
                         <label width="1" alignment="center" verticalAlignment="center" text="0" textAlignment="center" baselineAdjustment="alignCenters" id="eew-Ij-AY0">
                             <fontDescription key="font" type="system" pointSize="20"/>
                         </label>
-                        <imageView width="40" height="28" alignment="center" verticalAlignment="center" image="heart.fill" catalog="system" contentMode="scaleAspectFit" animationDuration="3" id="IpI-qL-qiJ">
+                        <imageView width="40" height="28" alignment="center" verticalAlignment="center" image="heart.fill" catalog="system" contentMode="scaleAspectFit" id="IpI-qL-qiJ">
                             <color key="tintColor" red="1" green="0.19320292350485113" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </imageView>
                         <button width="54" alignment="center" verticalAlignment="bottom" title="Begin" id="lNq-R6-T9N">
@@ -34,13 +63,16 @@
             </objects>
             <point key="canvasLocation" x="532" y="94"/>
         </scene>
-        <!--View2-->
+        <!--resultView-->
         <scene sceneID="EY8-is-WSP">
             <objects>
-                <controller identifier="View2" id="mez-SM-urL">
+                <controller identifier="resultView" backgroundImage="annie-spratt-8mqOw4DBBSg-unsplash" fullBounds="YES" fullScreen="YES" id="mez-SM-urL" customClass="ResultViewController" customModule="Watch_experiment_2_Extension">
                     <items>
                         <label alignment="center" verticalAlignment="center" text="Hi" textAlignment="center" id="L3m-Mf-Kga"/>
                     </items>
+                    <connections>
+                        <outlet property="averageLabel" destination="L3m-Mf-Kga" id="G8e-LU-Snt"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="813" y="95"/>

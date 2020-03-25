@@ -26,8 +26,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     var healthStore : HKHealthStore?
     
     var wcSession : WCSession!
-    
-    
+
     
 
     var timer: Timer!
@@ -37,6 +36,12 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
   
   
     var began =  false
+    
+    var beat = true
+    
+    var totalBeats = 0.0
+    
+    var averageBeats = 0
     
   
     
@@ -48,7 +53,13 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        SecondsLabel.setText(timeString(time: TimeInterval(seconds)))
+        
+        if let sessionLength = context as? Int{
+            seconds = sessionLength + 1 //The ++ is due to a bug of setting timer - 1
+           SecondsLabel.setText(timeString(time: TimeInterval(seconds)))
+        } else {
+            print("Passed context is not an Int: \(String(describing: context))")
+        }
         
         let sampleType: Set<HKSampleType> = [HKSampleType.quantityType(forIdentifier: .heartRate)!]
         healthStore = HKHealthStore()
@@ -110,6 +121,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
             for sample in samples{
                 if type == .heartRate {
                     lastHeartRate = sample.quantity.doubleValue(for: beatCountPerMinute)
+                    //totalBeats += lastHeartRate
                 }
                 
                 let completion: ((Bool, Error?) -> Void) = {
@@ -121,26 +133,23 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
                     }
                 }
                 
+                
                 healthStore?.save(samples, withCompletion: completion)
                 
-                print("Function called")
-              
-                
                 updateHeartRateLabel()
-               
-                //updateHeartRateSpeedLabel()
+            
             }
-            
-            //let average =
-            
-            //print(average)
+             
+            //if !(samples.isEmpty){ averageBeats = Int(totalBeats) / samples.count}
+            print(samples.count)
      
         }
         //Update string showing heart rate
         private func updateHeartRateLabel() {
             let heartRate = String(Int(lastHeartRate))
             HeartrateLabel.setText(heartRate)
-            print("Function called")
+            //print("Function called")
+            
      
         }
         
@@ -162,10 +171,10 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
     
     @objc func updatetimer(){
-        if seconds < 30 {
+        if seconds < 50 {
             
             //SecondsLabel.setText("Finish!")
-            pushController(withName: "View2", context: nil)
+            pushController(withName: "resultView", context: averageBeats)
             timer.invalidate()
             
             //Context is the data I might want to add
@@ -173,7 +182,9 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         
         else{
         seconds -= 1
-        SecondsLabel.setText(timeString(time: TimeInterval(seconds)))}
+        SecondsLabel.setText(timeString(time: TimeInterval(seconds)))
+            animateHeart()
+        }
         
     }
 
@@ -196,6 +207,24 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         
     }
     
+    func animateHeart() {
+        if beat == true {
+            self.animate(withDuration: 0.5) {
+                self.HeartImage.setWidth(50)
+                self.HeartImage.setHeight(80)
+              }
+            beat = false
+        }
+        
+        else {
+            self.animate(withDuration: 0.5) {
+                    self.HeartImage.setWidth(60)
+                    self.HeartImage.setHeight(90)
+                }
+              beat = true
+        }
+    }
+    
     
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
@@ -214,3 +243,4 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
     
 }
+

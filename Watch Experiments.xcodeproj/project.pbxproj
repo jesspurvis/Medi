@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B298D129242B81B900E76775 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B298D128242B81B900E76775 /* InitialViewController.swift */; };
+		B298D12B242B924700E76775 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B298D12A242B924700E76775 /* ResultViewController.swift */; };
 		B29D7B662345F2EB0092AA23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29D7B652345F2EB0092AA23 /* AppDelegate.swift */; };
 		B29D7B682345F2EB0092AA23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29D7B672345F2EB0092AA23 /* ViewController.swift */; };
 		B29D7B6B2345F2EB0092AA23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B29D7B692345F2EB0092AA23 /* Main.storyboard */; };
@@ -109,6 +111,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B298D128242B81B900E76775 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		B298D12A242B924700E76775 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		B29D7B622345F2EB0092AA23 /* Meditator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meditator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B29D7B652345F2EB0092AA23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B29D7B672345F2EB0092AA23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -255,6 +259,8 @@
 			isa = PBXGroup;
 			children = (
 				B2C35C5D24095E3D00318BA9 /* Watch experiment 2 Extension.entitlements */,
+				B298D128242B81B900E76775 /* InitialViewController.swift */,
+				B298D12A242B924700E76775 /* ResultViewController.swift */,
 				B2C35C5A2407FF8100318BA9 /* InterfaceController.swift */,
 				B2FF198223466D0D00F2A2FC /* ExtensionDelegate.swift */,
 				B2FF198423466D0D00F2A2FC /* NotificationController.swift */,
@@ -495,10 +501,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B298D129242B81B900E76775 /* InitialViewController.swift in Sources */,
 				B2FF198523466D0D00F2A2FC /* NotificationController.swift in Sources */,
 				B2C35C5B2407FF8100318BA9 /* InterfaceController.swift in Sources */,
 				B2FF198323466D0D00F2A2FC /* ExtensionDelegate.swift in Sources */,
 				B2FF198723466D0D00F2A2FC /* NotificationView.swift in Sources */,
+				B298D12B242B924700E76775 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
