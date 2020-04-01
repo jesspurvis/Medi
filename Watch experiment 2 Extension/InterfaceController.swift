@@ -12,29 +12,26 @@ import HealthKit
 import WatchKit
 import WatchConnectivity
 
-class InterfaceController: WKInterfaceController {
+class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDelegate {
+    
+
 
     
     @IBOutlet weak var SecondsLabel: WKInterfaceLabel!
-    
     @IBOutlet weak var HeartImage: WKInterfaceImage!
     @IBOutlet weak var HeartrateLabel: WKInterfaceLabel!
-   
-    
     @IBOutlet weak var BeginButton: WKInterfaceButton!
     
-    var healthStore : HKHealthStore?
-    
-  
-
+    var healthStore = HKHealthStore()
+    var configuration = HKWorkoutConfiguration()
+    var session: HKWorkoutSession!
+    var builder: HKLiveWorkoutBuilder!
     
 
     var timer: Timer!
     
-    var seconds = 80
-    
-  
-  
+    var seconds = 60
+
     var began =  false
     
     var beat = true
@@ -42,11 +39,7 @@ class InterfaceController: WKInterfaceController {
     var totalBeats = 0.0
     
     var averageBeats = 0
-    
-  
-    
-    
-    
+
     var lastHeartRate = 0.0
     let beatCountPerMinute = HKUnit(from: "count/min")
     //test
@@ -61,18 +54,33 @@ class InterfaceController: WKInterfaceController {
             print("Passed context is not an Int: \(String(describing: context))")
         }
         
-        let sampleType: Set<HKSampleType> = [HKSampleType.quantityType(forIdentifier: .heartRate)!]
-        healthStore = HKHealthStore()
-        healthStore?.requestAuthorization(toShare: sampleType, read: sampleType, completion: { (success, error) in
-            if success {
-                self.startHeartRateQuery(quantityTypeIdentifier: .heartRate)
-            }
-            else{
-                print("Issue with permissions, please try again")
-            }
-        })
-        updatetimer()
+        configuration = HKWorkoutConfiguration()
+        configuration.activityType = .mindAndBody
+        configuration.locationType = .indoor
+    
+        do {
+            session = try HKWorkoutSession(healthStore: healthStore, configuration: configuration)
+            
+            builder = session.associatedWorkoutBuilder()
+        } catch {
+            print("weird issue")
+            return
+        }
         
+        
+        session.delegate = self
+        builder.delegate = self
+        
+        builder.dataSource = HKLiveWorkoutDataSource(healthStore: healthStore,
+        workoutConfiguration: configuration)
+        
+        
+    
+        /// - Tag: StartSession
+        session.startActivity(with: Date())
+        builder.beginCollection(withStart: Date()) { (success, error) in
+            self.runTimer()
+        }
 
         //Config interface here
     }
@@ -90,77 +98,38 @@ class InterfaceController: WKInterfaceController {
     
     
         
-        private func startHeartRateQuery(quantityTypeIdentifier: HKQuantityTypeIdentifier) {
-            
-            // Data is only needed from local device
-            let devicePredicate = HKQuery.predicateForObjects(from: [HKDevice.local()])
-            
-            // Handle query updates
-            let updateHandler: (HKAnchoredObjectQuery, [HKSample]?, [HKDeletedObject]?, HKQueryAnchor?, Error?) -> Void = {
-                query, samples, deletedObjects, queryAnchor, error in
-                
-                // Take a sample from this query
-                guard let samples = samples as? [HKQuantitySample] else { return }
-                
-                self.process(samples, type: quantityTypeIdentifier)
-            }
-            
-            // Create a query for heart rate on local device predicate
-            let query = HKAnchoredObjectQuery(type: HKObjectType.quantityType(forIdentifier: quantityTypeIdentifier)!, predicate: devicePredicate, anchor: nil, limit: HKObjectQueryNoLimit, resultsHandler: updateHandler)
-            
-            query.updateHandler = updateHandler
-            
-            // Query start
-            healthStore?.execute(query)
-            
-     
-        }
         
-        private func process(_ samples: [HKQuantitySample], type: HKQuantityTypeIdentifier) {
-           
-            for sample in samples{
-                if type == .heartRate {
-                    
-                    lastHeartRate = sample.quantity.doubleValue(for: beatCountPerMinute)
-                    
-                    averageBeats = Int((lastHeartRate)) / sample.count
-                }
-                
-                let completion: ((Bool, Error?) -> Void) = {
-                    (success, error) -> Void in
-
-                    if !success {
-                        print("An error occured saving the Heart Rate sample \(sample). \(String(describing: error)).")
-                        abort()
-                    }
-                }
-                
-                
-                healthStore?.save(samples, withCompletion: completion)
-                
-                updateHeartRateLabel()
-                print(averageBeats)
-            
-            }
-             
-            //if !(samples.isEmpty){ averageBeats = Int(totalBeats) / samples.count}
-            print(samples.count)
-     
-        }
+        
         //Update string showing heart rate
-    private func updateHeartRateLabel() {
-        let heartRate = String(Int(lastHeartRate))
-        HeartrateLabel.setText(heartRate)
+    private func updateHeartRateLabel(withStatistics statistics: HKStatistics?) {
+        guard let statistics = statistics else {
+            return
+        }
+        //HeartrateLabel.setText(heartRate)
         
-        switch lastHeartRate {
-        case _ where lastHeartRate > 100:
+        let heartRateUnit = HKUnit.count().unitDivided(by: HKUnit.minute())
+        let value = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit)
+        let roundedValue = Double( round( 1 * value! ) / 1 )
+        HeartrateLabel.setText("\(roundedValue) BPM")
+        
+        averageBeats = Int(statistics.averageQuantity()!.doubleValue(for: heartRateUnit))
+        
+        
+        
+        
+        
+        //TODO: Change these values at some point
+        switch roundedValue {
+        case _ where roundedValue > 100.0:
             HeartrateLabel.setTextColor(.red)
-        case _ where lastHeartRate > 70:
+        case _ where roundedValue > 70.0:
             HeartrateLabel.setTextColor(.yellow)
         default:
             HeartrateLabel.setTextColor(.green)
         }
         }
+    
+    
     
     
         
@@ -185,9 +154,9 @@ class InterfaceController: WKInterfaceController {
         if seconds < 50 {
             
             //SecondsLabel.setText("Finish!")
+            endWorkout()
             pushController(withName: "resultView", context: averageBeats)
             timer.invalidate()
-            
             //Context is the data I might want to add
         }
         
@@ -233,6 +202,49 @@ class InterfaceController: WKInterfaceController {
                     self.HeartImage.setHeight(90)
                 }
               beat = true
+        }
+    }
+    
+    
+    
+    func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
+        
+    }
+    
+    func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {
+        
+    }
+    
+    func workoutBuilder(_ workoutBuilder: HKLiveWorkoutBuilder, didCollectDataOf collectedTypes: Set<HKSampleType>) {
+        
+        for type in collectedTypes {
+        guard let quantityType = type as? HKQuantityType else {
+            return // Nothing to do.
+        }
+            
+            
+        let statistics = workoutBuilder.statistics(for: quantityType)
+        
+                updateHeartRateLabel(withStatistics: statistics)
+        
+    }
+    }
+    
+    func workoutBuilderDidCollectEvent(_ workoutBuilder: HKLiveWorkoutBuilder) {
+        let lastEvent = workoutBuilder.workoutEvents.last
+    }
+    
+    func endWorkout() {
+        /// Update the timer based on the state we are in.
+        /// - Tag: SaveWorkout
+        session.end()
+        builder.endCollection(withEnd: Date()) { (success, error) in
+            self.builder.finishWorkout { (workout, error) in
+                // Dispatch to main, because we are updating the interface.
+                DispatchQueue.main.async() {
+                    self.dismiss()
+                }
+            }
         }
     }
     

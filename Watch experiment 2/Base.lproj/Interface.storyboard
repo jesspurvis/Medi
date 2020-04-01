@@ -9,7 +9,7 @@
         <!--initialView-->
         <scene sceneID="Fog-gd-C0w">
             <objects>
-                <controller identifier="initialView" backgroundImage="annie-spratt-8mqOw4DBBSg-unsplash" fullBounds="YES" fullScreen="YES" id="SFg-Wp-Ckz" customClass="InitialViewController" customModule="Watch_experiment_2_Extension">
+                <controller identifier="initialView" backgroundImage="annie-spratt-8mqOw4DBBSg-unsplash" contentMode="scaleAspectFill" fullBounds="YES" fullScreen="YES" id="SFg-Wp-Ckz" customClass="InitialViewController" customModule="Watch_experiment_2_Extension">
                     <items>
                         <label alignment="center" text="Welcome" id="gQq-RK-SkU">
                             <fontDescription key="font" type="italicSystem" weight="bold" pointSize="30"/>
@@ -47,7 +47,8 @@
                         <imageView width="40" height="28" alignment="center" verticalAlignment="center" image="heart.fill" catalog="system" contentMode="scaleAspectFit" id="IpI-qL-qiJ">
                             <color key="tintColor" red="1" green="0.19320292350485113" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </imageView>
-                        <button width="54" alignment="center" verticalAlignment="bottom" title="Begin" id="lNq-R6-T9N">
+                        <button alignment="center" verticalAlignment="bottom" title="Begin" id="lNq-R6-T9N">
+                            <fontDescription key="font" type="italicSystem" weight="semibold" pointSize="23"/>
                             <connections>
                                 <action selector="BeginTapped" destination="eeE-Cd-wUG" id="qTz-3g-eRP"/>
                             </connections>
@@ -61,21 +62,27 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="532" y="94"/>
+            <point key="canvasLocation" x="435" y="84"/>
         </scene>
         <!--resultView-->
         <scene sceneID="EY8-is-WSP">
             <objects>
-                <controller identifier="resultView" backgroundImage="annie-spratt-8mqOw4DBBSg-unsplash" fullBounds="YES" fullScreen="YES" id="mez-SM-urL" customClass="ResultViewController" customModule="Watch_experiment_2_Extension">
+                <controller identifier="resultView" backgroundImage="annie-spratt-8mqOw4DBBSg-unsplash" contentMode="scaleAspectFill" fullBounds="YES" fullScreen="YES" id="mez-SM-urL" customClass="ResultViewController" customModule="Watch_experiment_2_Extension">
                     <items>
-                        <label alignment="center" verticalAlignment="center" text="Hi" textAlignment="center" id="L3m-Mf-Kga"/>
+                        <label alignment="center" verticalAlignment="center" text="Error value N/A" textAlignment="center" id="L3m-Mf-Kga"/>
+                        <label alignment="center" text="Great Job!" id="nEP-8c-i0K">
+                            <fontDescription key="font" type="italicSystem" weight="bold" pointSize="25"/>
+                        </label>
+                        <label alignment="center" text="Average Heart Rate:" id="GAK-ki-3d4">
+                            <fontDescription key="font" type="italicSystem" weight="bold" pointSize="13"/>
+                        </label>
                     </items>
                     <connections>
                         <outlet property="averageLabel" destination="L3m-Mf-Kga" id="G8e-LU-Snt"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="813" y="95"/>
+            <point key="canvasLocation" x="709" y="84"/>
         </scene>
     </scenes>
     <resources>

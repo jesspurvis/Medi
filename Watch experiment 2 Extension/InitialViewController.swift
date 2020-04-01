@@ -11,13 +11,13 @@ import WatchKit
 import HealthKit
 class InitialViewController : WKInterfaceController{
     
+    let healthStore = HKHealthStore()
     
     @IBOutlet weak var timeSlider: WKInterfaceSlider!
     @IBOutlet weak var timeLabel: WKInterfaceLabel!
     
     var sessionLength = 60
     
-    let healthStore = HKHealthStore()
     
     
     
