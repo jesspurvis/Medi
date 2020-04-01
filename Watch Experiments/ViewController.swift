@@ -43,6 +43,8 @@ class ViewController: UIViewController,  WCSessionDelegate{
     }
     
     
+    /*
+    
     @IBAction func Launchpressed(_ sender: Any) {
         var sessionTime = String(Int(sessionTimeSlider.value))
         
@@ -53,6 +55,8 @@ class ViewController: UIViewController,  WCSessionDelegate{
             print(Error.localizedDescription)}
         
     }
+ */
+    
     
 
 

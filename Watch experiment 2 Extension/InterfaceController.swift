@@ -12,7 +12,7 @@ import HealthKit
 import WatchKit
 import WatchConnectivity
 
-class InterfaceController: WKInterfaceController, WCSessionDelegate {
+class InterfaceController: WKInterfaceController {
 
     
     @IBOutlet weak var SecondsLabel: WKInterfaceLabel!
@@ -25,7 +25,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
     var healthStore : HKHealthStore?
     
-    var wcSession : WCSession!
+  
 
     
 
@@ -67,6 +67,9 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
             if success {
                 self.startHeartRateQuery(quantityTypeIdentifier: .heartRate)
             }
+            else{
+                print("Issue with permissions, please try again")
+            }
         })
         updatetimer()
         
@@ -83,9 +86,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
         override func willActivate(){
             super.willActivate()
-            wcSession = WCSession.default
-            wcSession.delegate = self
-            wcSession.activate()
         }
     
     
@@ -120,8 +120,10 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
            
             for sample in samples{
                 if type == .heartRate {
+                    
                     lastHeartRate = sample.quantity.doubleValue(for: beatCountPerMinute)
-                    //totalBeats += lastHeartRate
+                    
+                    averageBeats = Int((lastHeartRate)) / sample.count
                 }
                 
                 let completion: ((Bool, Error?) -> Void) = {
@@ -137,6 +139,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
                 healthStore?.save(samples, withCompletion: completion)
                 
                 updateHeartRateLabel()
+                print(averageBeats)
             
             }
              
@@ -145,13 +148,21 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
      
         }
         //Update string showing heart rate
-        private func updateHeartRateLabel() {
-            let heartRate = String(Int(lastHeartRate))
-            HeartrateLabel.setText(heartRate)
-            //print("Function called")
-            
-     
+    private func updateHeartRateLabel() {
+        let heartRate = String(Int(lastHeartRate))
+        HeartrateLabel.setText(heartRate)
+        
+        switch lastHeartRate {
+        case _ where lastHeartRate > 100:
+            HeartrateLabel.setTextColor(.red)
+        case _ where lastHeartRate > 70:
+            HeartrateLabel.setTextColor(.yellow)
+        default:
+            HeartrateLabel.setTextColor(.green)
         }
+        }
+    
+    
         
 
             
@@ -227,19 +238,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
     
     
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        let timer = message["timeLength"] as! String
-        seconds = Int(timer)!
-        updatetimer()
-        
-        
-    }
-    
-    
-    
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        
-    }
+
     
     
 }

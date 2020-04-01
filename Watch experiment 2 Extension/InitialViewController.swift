@@ -8,15 +8,40 @@
 
 import Foundation
 import WatchKit
+import HealthKit
 class InitialViewController : WKInterfaceController{
     
     
     @IBOutlet weak var timeSlider: WKInterfaceSlider!
-    
-    
     @IBOutlet weak var timeLabel: WKInterfaceLabel!
     
     var sessionLength = 60
+    
+    let healthStore = HKHealthStore()
+    
+    
+    
+    override func didAppear() {
+        super.didAppear()
+        
+    let typesToShare: Set = [
+        HKQuantityType.workoutType()
+    ]
+    
+    let typesToRead: Set = [
+        HKQuantityType.quantityType(forIdentifier: .heartRate)!
+    ]
+        
+    healthStore.requestAuthorization(toShare: typesToShare, read: typesToRead) { (success, error) in
+        if !success{ print("Issue with permissions, please try again")}
+        }
+        
+    
+        
+        
+        
+    }
+    
     
     
     
