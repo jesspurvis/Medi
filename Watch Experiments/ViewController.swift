@@ -9,23 +9,17 @@
 import UIKit
 import WatchConnectivity
 
-class ViewController: UIViewController,  WCSessionDelegate{
+class ViewController: UIViewController{
 
     
     
     let backgroundImageView = UIImageView()
-    var wcsession: WCSession! = nil
-    
-    @IBOutlet weak var sessionTimeSlider: UISlider!
-    
-    
-    @IBOutlet weak var sessionTimeLabel: UILabel!
-    
-    
 
-    @IBAction func SliderChanged(_ sender: Any) {
-        sessionTimeLabel.text = (String(Int((sessionTimeSlider.value)) )) + " Seconds"
+    
+    @IBAction func progressButton(_ sender: Any) {
+        UIApplication.shared.open(URL(string: "x-apple-health://")!)
     }
+    
     
     
     override func viewDidLoad() {
@@ -33,11 +27,7 @@ class ViewController: UIViewController,  WCSessionDelegate{
         
         setBackgroundImage()
         
-        // Do any additional setup after loading the view.
-        
-        wcsession = WCSession.default
-        wcsession.delegate = self
-        wcsession.activate()
+
         
         //sessionTimeLabel.text = String(sessionTimeSlider.value)
     }

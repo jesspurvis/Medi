@@ -29,21 +29,22 @@ class InitialViewController : WKInterfaceController{
     ]
     
     let typesToRead: Set = [
-        HKQuantityType.quantityType(forIdentifier: .heartRate)!
+        HKQuantityType.quantityType(forIdentifier: .heartRate)!,
+        HKQuantityType.characteristicType(forIdentifier: .dateOfBirth)!,
+        HKQuantityType.characteristicType(forIdentifier: .biologicalSex)!
+        
     ]
         
     healthStore.requestAuthorization(toShare: typesToShare, read: typesToRead) { (success, error) in
         if !success{ print("Issue with permissions, please try again")}
         }
         
-    
-        
-        
         
     }
     
     
     
+    // MARK: - Slider and Start
     
     @IBAction func SliderChanged(_ value: Float) {
         let roundedValue = Int(round(value))

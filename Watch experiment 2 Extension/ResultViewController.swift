@@ -17,11 +17,20 @@ import Foundation
 
 import Foundation
 import WatchKit
+import HealthKit
 class ResultViewController : WKInterfaceController{
     
        
     @IBOutlet weak var averageLabel: WKInterfaceLabel!
     
+    @IBOutlet weak var ratingLabel: WKInterfaceLabel!
+    
+    
+    var isFemale = false
+    var age = 0
+    var rating = 0
+    
+    let healthStore = HKHealthStore()
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -31,9 +40,50 @@ class ResultViewController : WKInterfaceController{
         } else {
             print("Passed context is not an Int: \(String(describing: context))")
         }
-        
     }
     
     
+    
+/**
+    
+    func calculateRating(){
+        
+        do {
+            if try healthStore.biologicalSex().biologicalSex == HKBiologicalSex.female {isFemale = true}
+            else if try healthStore.biologicalSex().biologicalSex == HKBiologicalSex.male {isFemale = false}
+        }
+        catch {
+            print("SEX N/A")
+        }
+    
+        
+        do {
+            let age = try healthStore.dateOfBirthComponents().year
+        } catch {
+            print("AGE N/A")
+        }
+        
+        
+        switch age {
+        case _ where age > 25 :
+            if (isFemale){
+                
+                
+            }
+            else{
+                
+            }
+        default:
+            
+        }
+
+        
+       
+    }
+  **/
+
 }
+    
+
+
 

@@ -14,9 +14,10 @@ import WatchConnectivity
 
 class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDelegate {
     
-
-
     
+    // MARK: - Variable declares
+    
+    @IBOutlet weak var BreatheLabel: WKInterfaceLabel!
     @IBOutlet weak var SecondsLabel: WKInterfaceLabel!
     @IBOutlet weak var HeartImage: WKInterfaceImage!
     @IBOutlet weak var HeartrateLabel: WKInterfaceLabel!
@@ -30,7 +31,11 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, HKLi
 
     var timer: Timer!
     
+    var breatheTimer: Timer!
+    
     var seconds = 60
+    
+    var breatheInterval = 0
 
     var began =  false
     
@@ -42,7 +47,10 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, HKLi
 
     var lastHeartRate = 0.0
     let beatCountPerMinute = HKUnit(from: "count/min")
-    //test
+    
+    // MARK: - Initialisation methods
+    
+    
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -67,7 +75,6 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, HKLi
             return
         }
         
-        
         session.delegate = self
         builder.delegate = self
         
@@ -75,14 +82,10 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, HKLi
         workoutConfiguration: configuration)
         
         
-    
-        /// - Tag: StartSession
         session.startActivity(with: Date())
         builder.beginCollection(withStart: Date()) { (success, error) in
             self.runTimer()
         }
-
-        //Config interface here
     }
     
     
@@ -96,16 +99,11 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, HKLi
             super.willActivate()
         }
     
-    
-        
-        
-        
-        //Update string showing heart rate
+    // MARK: - Visual
     private func updateHeartRateLabel(withStatistics statistics: HKStatistics?) {
         guard let statistics = statistics else {
             return
         }
-        //HeartrateLabel.setText(heartRate)
         
         let heartRateUnit = HKUnit.count().unitDivided(by: HKUnit.minute())
         let value = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit)
@@ -114,13 +112,10 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, HKLi
         
         averageBeats = Int(statistics.averageQuantity()!.doubleValue(for: heartRateUnit))
         
-        
-        
-        
-        
-        //TODO: Change these values at some point
+        //TODO: Change these values at some point, remember to use Doubles
+    
         switch roundedValue {
-        case _ where roundedValue > 100.0:
+        case _ where roundedValue > 74.0:
             HeartrateLabel.setTextColor(.red)
         case _ where roundedValue > 70.0:
             HeartrateLabel.setTextColor(.yellow)
@@ -130,16 +125,39 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, HKLi
         }
     
     
-    
-    
-        
 
-            
-    //Timer countdown methods
+    
+    
+
+    func animateHeart() {
+        if beat == true {
+            self.animate(withDuration: 2) {
+                self.HeartImage.setWidth(30)
+                self.HeartImage.setHeight(45)
+              }
+            beat = false
+        }
+        else {
+            self.animate(withDuration: 2) {
+                    self.HeartImage.setWidth(50)
+                    self.HeartImage.setHeight(65)
+                }
+              beat = true
+        }
+    }
+        
+    
+    
+    
+    
+    // MARK: - Timer methods
     
     func runTimer(){
         //For every second that passes, call the update timer method
     timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updatetimer), userInfo: nil, repeats: true)
+        
+    breatheTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateBreathe), userInfo: nil, repeats: true)
+    
     }
     
     func timeString(time:TimeInterval) -> String {
@@ -151,22 +169,42 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, HKLi
     
     
     @objc func updatetimer(){
-        if seconds < 50 {
-            
-            //SecondsLabel.setText("Finish!")
+        if seconds < 0 {
             endWorkout()
             pushController(withName: "resultView", context: averageBeats)
             timer.invalidate()
+            breatheTimer.invalidate()
             //Context is the data I might want to add
         }
-        
-        else{
+        else {
         seconds -= 1
         SecondsLabel.setText(timeString(time: TimeInterval(seconds)))
             animateHeart()
         }
+    }
+    
+    @objc func updateBreathe(){
+        breatheInterval = breatheInterval % 19
+        
+        
+        
+        if (breatheInterval <= 4){
+            BreatheLabel.setText("IN   \(breatheInterval)")
+        }
+        else if ((breatheInterval > 4) && (breatheInterval <= 11) ){
+            BreatheLabel.setText("HOLD \(breatheInterval - 4)")
+            
+        }
+        else {
+            BreatheLabel.setText("OUT \(breatheInterval - 11)")
+        }
+        
+        
+        breatheInterval += 1
         
     }
+    
+    
 
     @IBAction func BeginTapped() {
         if began == true{
@@ -174,37 +212,23 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, HKLi
             BeginButton.setTitle("Start")
             //SessionTimer.start()
             timer.invalidate()
+            breatheTimer.invalidate()
             
             began = false
+            WKInterfaceDevice.current().play(WKHapticType.start)
+                
         }
         else{
             BeginButton.setTitle("Stop")
             //SessionTimer.stop()
             began = true
             runTimer()
+            WKInterfaceDevice.current().play(WKHapticType.stop)
             
         }
         
     }
-    
-    func animateHeart() {
-        if beat == true {
-            self.animate(withDuration: 0.5) {
-                self.HeartImage.setWidth(50)
-                self.HeartImage.setHeight(80)
-              }
-            beat = false
-        }
-        
-        else {
-            self.animate(withDuration: 0.5) {
-                    self.HeartImage.setWidth(60)
-                    self.HeartImage.setHeight(90)
-                }
-              beat = true
-        }
-    }
-    
+    // MARK: - Stub methods
     
     
     func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
@@ -231,12 +255,14 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, HKLi
     }
     
     func workoutBuilderDidCollectEvent(_ workoutBuilder: HKLiveWorkoutBuilder) {
-        let lastEvent = workoutBuilder.workoutEvents.last
+        _ = workoutBuilder.workoutEvents.last
+        //let lastEvent = workoutBuilder.workoutEvents.last  IF breaks set back to this
     }
     
     func endWorkout() {
         /// Update the timer based on the state we are in.
         /// - Tag: SaveWorkout
+        WKInterfaceDevice.current().play(WKHapticType.success)
         session.end()
         builder.endCollection(withEnd: Date()) { (success, error) in
             self.builder.finishWorkout { (workout, error) in

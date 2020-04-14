@@ -44,9 +44,10 @@
                         <label width="1" alignment="center" verticalAlignment="center" text="0" textAlignment="center" baselineAdjustment="alignCenters" id="eew-Ij-AY0">
                             <fontDescription key="font" type="system" pointSize="20"/>
                         </label>
-                        <imageView width="40" height="28" alignment="center" verticalAlignment="center" image="heart.fill" catalog="system" contentMode="scaleAspectFit" id="IpI-qL-qiJ">
+                        <imageView width="30" height="45" alignment="center" verticalAlignment="center" image="heart.fill" catalog="system" contentMode="scaleAspectFit" id="IpI-qL-qiJ">
                             <color key="tintColor" red="1" green="0.19320292350485113" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </imageView>
+                        <label alignment="center" verticalAlignment="center" id="ytt-17-jzu"/>
                         <button alignment="center" verticalAlignment="bottom" title="Begin" id="lNq-R6-T9N">
                             <fontDescription key="font" type="italicSystem" weight="semibold" pointSize="23"/>
                             <connections>
@@ -56,6 +57,7 @@
                     </items>
                     <connections>
                         <outlet property="BeginButton" destination="lNq-R6-T9N" id="kFw-Xn-Gvv"/>
+                        <outlet property="BreatheLabel" destination="ytt-17-jzu" id="3Jn-vW-r6H"/>
                         <outlet property="HeartImage" destination="IpI-qL-qiJ" id="atp-dE-JZ8"/>
                         <outlet property="HeartrateLabel" destination="eew-Ij-AY0" id="Qxi-9U-zWj"/>
                         <outlet property="SecondsLabel" destination="BTd-Wa-2SI" id="LhB-YY-kgs"/>
@@ -76,9 +78,13 @@
                         <label alignment="center" text="Average Heart Rate:" id="GAK-ki-3d4">
                             <fontDescription key="font" type="italicSystem" weight="bold" pointSize="13"/>
                         </label>
+                        <label alignment="center" verticalAlignment="center" id="hdJ-qD-LcL" userLabel="Rating">
+                            <fontDescription key="font" type="italicSystem" pointSize="16"/>
+                        </label>
                     </items>
                     <connections>
                         <outlet property="averageLabel" destination="L3m-Mf-Kga" id="G8e-LU-Snt"/>
+                        <outlet property="ratingLabel" destination="hdJ-qD-LcL" id="kZk-G5-MkS"/>
                     </connections>
                 </controller>
             </objects>
