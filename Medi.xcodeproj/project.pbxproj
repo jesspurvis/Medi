@@ -21,13 +21,13 @@
 		B2C35C5F24095E3D00318BA9 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C35C5E24095E3D00318BA9 /* HealthKit.framework */; };
 		B2FF197123466D0900F2A2FC /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2FF196F23466D0900F2A2FC /* Interface.storyboard */; };
 		B2FF197323466D0C00F2A2FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2FF197223466D0C00F2A2FC /* Assets.xcassets */; };
-		B2FF197A23466D0D00F2A2FC /* Watch experiment 2 Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B2FF197923466D0D00F2A2FC /* Watch experiment 2 Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B2FF197A23466D0D00F2A2FC /* Medi 2 Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B2FF197923466D0D00F2A2FC /* Medi 2 Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B2FF198323466D0D00F2A2FC /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FF198223466D0D00F2A2FC /* ExtensionDelegate.swift */; };
 		B2FF198523466D0D00F2A2FC /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FF198423466D0D00F2A2FC /* NotificationController.swift */; };
 		B2FF198723466D0D00F2A2FC /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FF198623466D0D00F2A2FC /* NotificationView.swift */; };
 		B2FF198923466D0F00F2A2FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2FF198823466D0F00F2A2FC /* Assets.xcassets */; };
 		B2FF198C23466D0F00F2A2FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2FF198B23466D0F00F2A2FC /* Preview Assets.xcassets */; };
-		B2FF199123466D0F00F2A2FC /* Watch experiment 2.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B2FF196D23466D0900F2A2FC /* Watch experiment 2.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B2FF199123466D0F00F2A2FC /* Medi 2.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B2FF196D23466D0900F2A2FC /* Medi 2.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -92,7 +92,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				B2FF199123466D0F00F2A2FC /* Watch experiment 2.app in Embed Watch Content */,
+				B2FF199123466D0F00F2A2FC /* Medi 2.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,7 +103,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				B2FF197A23466D0D00F2A2FC /* Watch experiment 2 Extension.appex in Embed App Extensions */,
+				B2FF197A23466D0D00F2A2FC /* Medi 2 Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,22 +120,22 @@
 		B29D7B6C2345F2EE0092AA23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B29D7B6F2345F2EE0092AA23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B29D7B712345F2EE0092AA23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B29D7B762345F2EE0092AA23 /* Watch ExperimentsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Watch ExperimentsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B29D7B762345F2EE0092AA23 /* MediTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MediTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B29D7B7A2345F2EE0092AA23 /* Watch_ExperimentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_ExperimentsTests.swift; sourceTree = "<group>"; };
 		B29D7B7C2345F2EE0092AA23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B29D7B812345F2EE0092AA23 /* Watch ExperimentsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Watch ExperimentsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B29D7B812345F2EE0092AA23 /* MediUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MediUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B29D7B852345F2EE0092AA23 /* Watch_ExperimentsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_ExperimentsUITests.swift; sourceTree = "<group>"; };
 		B29D7B872345F2EE0092AA23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2C35C572407308600318BA9 /* Meditator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Meditator.entitlements; sourceTree = "<group>"; };
 		B2C35C582407308600318BA9 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		B2C35C5A2407FF8100318BA9 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		B2C35C5D24095E3D00318BA9 /* Watch experiment 2 Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Watch experiment 2 Extension.entitlements"; sourceTree = "<group>"; };
+		B2C35C5D24095E3D00318BA9 /* Medi 2 Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Medi 2 Extension.entitlements"; sourceTree = "<group>"; };
 		B2C35C5E24095E3D00318BA9 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS6.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
-		B2FF196D23466D0900F2A2FC /* Watch experiment 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Watch experiment 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2FF196D23466D0900F2A2FC /* Medi 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Medi 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2FF197023466D0900F2A2FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		B2FF197223466D0C00F2A2FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2FF197423466D0C00F2A2FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B2FF197923466D0D00F2A2FC /* Watch experiment 2 Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Watch experiment 2 Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2FF197923466D0D00F2A2FC /* Medi 2 Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Medi 2 Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2FF198223466D0D00F2A2FC /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		B2FF198423466D0D00F2A2FC /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		B2FF198623466D0D00F2A2FC /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
@@ -182,11 +182,11 @@
 		B29D7B592345F2EB0092AA23 = {
 			isa = PBXGroup;
 			children = (
-				B29D7B642345F2EB0092AA23 /* Watch Experiments */,
-				B29D7B792345F2EE0092AA23 /* Watch ExperimentsTests */,
-				B29D7B842345F2EE0092AA23 /* Watch ExperimentsUITests */,
-				B2FF196E23466D0900F2A2FC /* Watch experiment 2 */,
-				B2FF197D23466D0D00F2A2FC /* Watch experiment 2 Extension */,
+				B29D7B642345F2EB0092AA23 /* Medi */,
+				B29D7B792345F2EE0092AA23 /* MediTests */,
+				B29D7B842345F2EE0092AA23 /* MediUITests */,
+				B2FF196E23466D0900F2A2FC /* Medi 2 */,
+				B2FF197D23466D0D00F2A2FC /* Medi 2 Extension */,
 				B29D7B632345F2EB0092AA23 /* Products */,
 				B2C35C4F2406F62D00318BA9 /* Frameworks */,
 			);
@@ -196,15 +196,15 @@
 			isa = PBXGroup;
 			children = (
 				B29D7B622345F2EB0092AA23 /* Meditator.app */,
-				B29D7B762345F2EE0092AA23 /* Watch ExperimentsTests.xctest */,
-				B29D7B812345F2EE0092AA23 /* Watch ExperimentsUITests.xctest */,
-				B2FF196D23466D0900F2A2FC /* Watch experiment 2.app */,
-				B2FF197923466D0D00F2A2FC /* Watch experiment 2 Extension.appex */,
+				B29D7B762345F2EE0092AA23 /* MediTests.xctest */,
+				B29D7B812345F2EE0092AA23 /* MediUITests.xctest */,
+				B2FF196D23466D0900F2A2FC /* Medi 2.app */,
+				B2FF197923466D0D00F2A2FC /* Medi 2 Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B29D7B642345F2EB0092AA23 /* Watch Experiments */ = {
+		B29D7B642345F2EB0092AA23 /* Medi */ = {
 			isa = PBXGroup;
 			children = (
 				B2C35C572407308600318BA9 /* Meditator.entitlements */,
@@ -215,25 +215,25 @@
 				B29D7B6E2345F2EE0092AA23 /* LaunchScreen.storyboard */,
 				B29D7B712345F2EE0092AA23 /* Info.plist */,
 			);
-			path = "Watch Experiments";
+			path = Medi;
 			sourceTree = "<group>";
 		};
-		B29D7B792345F2EE0092AA23 /* Watch ExperimentsTests */ = {
+		B29D7B792345F2EE0092AA23 /* MediTests */ = {
 			isa = PBXGroup;
 			children = (
 				B29D7B7A2345F2EE0092AA23 /* Watch_ExperimentsTests.swift */,
 				B29D7B7C2345F2EE0092AA23 /* Info.plist */,
 			);
-			path = "Watch ExperimentsTests";
+			path = MediTests;
 			sourceTree = "<group>";
 		};
-		B29D7B842345F2EE0092AA23 /* Watch ExperimentsUITests */ = {
+		B29D7B842345F2EE0092AA23 /* MediUITests */ = {
 			isa = PBXGroup;
 			children = (
 				B29D7B852345F2EE0092AA23 /* Watch_ExperimentsUITests.swift */,
 				B29D7B872345F2EE0092AA23 /* Info.plist */,
 			);
-			path = "Watch ExperimentsUITests";
+			path = MediUITests;
 			sourceTree = "<group>";
 		};
 		B2C35C4F2406F62D00318BA9 /* Frameworks */ = {
@@ -245,20 +245,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B2FF196E23466D0900F2A2FC /* Watch experiment 2 */ = {
+		B2FF196E23466D0900F2A2FC /* Medi 2 */ = {
 			isa = PBXGroup;
 			children = (
 				B2FF196F23466D0900F2A2FC /* Interface.storyboard */,
 				B2FF197223466D0C00F2A2FC /* Assets.xcassets */,
 				B2FF197423466D0C00F2A2FC /* Info.plist */,
 			);
-			path = "Watch experiment 2";
+			path = "Medi 2";
 			sourceTree = "<group>";
 		};
-		B2FF197D23466D0D00F2A2FC /* Watch experiment 2 Extension */ = {
+		B2FF197D23466D0D00F2A2FC /* Medi 2 Extension */ = {
 			isa = PBXGroup;
 			children = (
-				B2C35C5D24095E3D00318BA9 /* Watch experiment 2 Extension.entitlements */,
+				B2C35C5D24095E3D00318BA9 /* Medi 2 Extension.entitlements */,
 				B298D128242B81B900E76775 /* InitialViewController.swift */,
 				B298D12A242B924700E76775 /* ResultViewController.swift */,
 				B2C35C5A2407FF8100318BA9 /* InterfaceController.swift */,
@@ -270,7 +270,7 @@
 				B2FF198E23466D0F00F2A2FC /* PushNotificationPayload.apns */,
 				B2FF198A23466D0F00F2A2FC /* Preview Content */,
 			);
-			path = "Watch experiment 2 Extension";
+			path = "Medi 2 Extension";
 			sourceTree = "<group>";
 		};
 		B2FF198A23466D0F00F2A2FC /* Preview Content */ = {
@@ -284,9 +284,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B29D7B612345F2EB0092AA23 /* Watch Experiments */ = {
+		B29D7B612345F2EB0092AA23 /* Medi */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B29D7B8A2345F2EE0092AA23 /* Build configuration list for PBXNativeTarget "Watch Experiments" */;
+			buildConfigurationList = B29D7B8A2345F2EE0092AA23 /* Build configuration list for PBXNativeTarget "Medi" */;
 			buildPhases = (
 				B29D7B5E2345F2EB0092AA23 /* Sources */,
 				B29D7B5F2345F2EB0092AA23 /* Frameworks */,
@@ -300,14 +300,14 @@
 			dependencies = (
 				B2FF199023466D0F00F2A2FC /* PBXTargetDependency */,
 			);
-			name = "Watch Experiments";
+			name = Medi;
 			productName = "Watch Experiments";
 			productReference = B29D7B622345F2EB0092AA23 /* Meditator.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B29D7B752345F2EE0092AA23 /* Watch ExperimentsTests */ = {
+		B29D7B752345F2EE0092AA23 /* MediTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B29D7B8D2345F2EE0092AA23 /* Build configuration list for PBXNativeTarget "Watch ExperimentsTests" */;
+			buildConfigurationList = B29D7B8D2345F2EE0092AA23 /* Build configuration list for PBXNativeTarget "MediTests" */;
 			buildPhases = (
 				B29D7B722345F2EE0092AA23 /* Sources */,
 				B29D7B732345F2EE0092AA23 /* Frameworks */,
@@ -318,14 +318,14 @@
 			dependencies = (
 				B29D7B782345F2EE0092AA23 /* PBXTargetDependency */,
 			);
-			name = "Watch ExperimentsTests";
+			name = MediTests;
 			productName = "Watch ExperimentsTests";
-			productReference = B29D7B762345F2EE0092AA23 /* Watch ExperimentsTests.xctest */;
+			productReference = B29D7B762345F2EE0092AA23 /* MediTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B29D7B802345F2EE0092AA23 /* Watch ExperimentsUITests */ = {
+		B29D7B802345F2EE0092AA23 /* MediUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B29D7B902345F2EE0092AA23 /* Build configuration list for PBXNativeTarget "Watch ExperimentsUITests" */;
+			buildConfigurationList = B29D7B902345F2EE0092AA23 /* Build configuration list for PBXNativeTarget "MediUITests" */;
 			buildPhases = (
 				B29D7B7D2345F2EE0092AA23 /* Sources */,
 				B29D7B7E2345F2EE0092AA23 /* Frameworks */,
@@ -336,14 +336,14 @@
 			dependencies = (
 				B29D7B832345F2EE0092AA23 /* PBXTargetDependency */,
 			);
-			name = "Watch ExperimentsUITests";
+			name = MediUITests;
 			productName = "Watch ExperimentsUITests";
-			productReference = B29D7B812345F2EE0092AA23 /* Watch ExperimentsUITests.xctest */;
+			productReference = B29D7B812345F2EE0092AA23 /* MediUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		B2FF196C23466D0900F2A2FC /* Watch experiment 2 */ = {
+		B2FF196C23466D0900F2A2FC /* Medi 2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B2FF199923466D0F00F2A2FC /* Build configuration list for PBXNativeTarget "Watch experiment 2" */;
+			buildConfigurationList = B2FF199923466D0F00F2A2FC /* Build configuration list for PBXNativeTarget "Medi 2" */;
 			buildPhases = (
 				B2FF196B23466D0900F2A2FC /* Resources */,
 				B2FF199523466D0F00F2A2FC /* Embed App Extensions */,
@@ -353,14 +353,14 @@
 			dependencies = (
 				B2FF197C23466D0D00F2A2FC /* PBXTargetDependency */,
 			);
-			name = "Watch experiment 2";
+			name = "Medi 2";
 			productName = "Watch experiment 2";
-			productReference = B2FF196D23466D0900F2A2FC /* Watch experiment 2.app */;
+			productReference = B2FF196D23466D0900F2A2FC /* Medi 2.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
-		B2FF197823466D0D00F2A2FC /* Watch experiment 2 Extension */ = {
+		B2FF197823466D0D00F2A2FC /* Medi 2 Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B2FF199823466D0F00F2A2FC /* Build configuration list for PBXNativeTarget "Watch experiment 2 Extension" */;
+			buildConfigurationList = B2FF199823466D0F00F2A2FC /* Build configuration list for PBXNativeTarget "Medi 2 Extension" */;
 			buildPhases = (
 				B2FF197523466D0D00F2A2FC /* Sources */,
 				B2FF197623466D0D00F2A2FC /* Frameworks */,
@@ -370,9 +370,9 @@
 			);
 			dependencies = (
 			);
-			name = "Watch experiment 2 Extension";
+			name = "Medi 2 Extension";
 			productName = "Watch experiment 2 Extension";
-			productReference = B2FF197923466D0D00F2A2FC /* Watch experiment 2 Extension.appex */;
+			productReference = B2FF197923466D0D00F2A2FC /* Medi 2 Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
@@ -404,7 +404,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B29D7B5D2345F2EB0092AA23 /* Build configuration list for PBXProject "Watch Experiments" */;
+			buildConfigurationList = B29D7B5D2345F2EB0092AA23 /* Build configuration list for PBXProject "Medi" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -417,11 +417,11 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B29D7B612345F2EB0092AA23 /* Watch Experiments */,
-				B29D7B752345F2EE0092AA23 /* Watch ExperimentsTests */,
-				B29D7B802345F2EE0092AA23 /* Watch ExperimentsUITests */,
-				B2FF196C23466D0900F2A2FC /* Watch experiment 2 */,
-				B2FF197823466D0D00F2A2FC /* Watch experiment 2 Extension */,
+				B29D7B612345F2EB0092AA23 /* Medi */,
+				B29D7B752345F2EE0092AA23 /* MediTests */,
+				B29D7B802345F2EE0092AA23 /* MediUITests */,
+				B2FF196C23466D0900F2A2FC /* Medi 2 */,
+				B2FF197823466D0D00F2A2FC /* Medi 2 Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -515,22 +515,22 @@
 /* Begin PBXTargetDependency section */
 		B29D7B782345F2EE0092AA23 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B29D7B612345F2EB0092AA23 /* Watch Experiments */;
+			target = B29D7B612345F2EB0092AA23 /* Medi */;
 			targetProxy = B29D7B772345F2EE0092AA23 /* PBXContainerItemProxy */;
 		};
 		B29D7B832345F2EE0092AA23 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B29D7B612345F2EB0092AA23 /* Watch Experiments */;
+			target = B29D7B612345F2EB0092AA23 /* Medi */;
 			targetProxy = B29D7B822345F2EE0092AA23 /* PBXContainerItemProxy */;
 		};
 		B2FF197C23466D0D00F2A2FC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B2FF197823466D0D00F2A2FC /* Watch experiment 2 Extension */;
+			target = B2FF197823466D0D00F2A2FC /* Medi 2 Extension */;
 			targetProxy = B2FF197B23466D0D00F2A2FC /* PBXContainerItemProxy */;
 		};
 		B2FF199023466D0F00F2A2FC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B2FF196C23466D0900F2A2FC /* Watch experiment 2 */;
+			target = B2FF196C23466D0900F2A2FC /* Medi 2 */;
 			targetProxy = B2FF198F23466D0F00F2A2FC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -683,15 +683,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Watch Experiments/Meditator.entitlements";
+				CODE_SIGN_ENTITLEMENTS = Medi/Meditator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8NL66XZWZ5;
-				INFOPLIST_FILE = "Watch Experiments/Info.plist";
+				INFOPLIST_FILE = Medi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Jess.Watch-Experiments";
+				PRODUCT_BUNDLE_IDENTIFIER = Jess.Medi;
 				PRODUCT_NAME = Meditator;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -702,15 +702,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Watch Experiments/Meditator.entitlements";
+				CODE_SIGN_ENTITLEMENTS = Medi/Meditator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8NL66XZWZ5;
-				INFOPLIST_FILE = "Watch Experiments/Info.plist";
+				INFOPLIST_FILE = Medi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Jess.Watch-Experiments";
+				PRODUCT_BUNDLE_IDENTIFIER = Jess.Medi;
 				PRODUCT_NAME = Meditator;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -724,17 +724,17 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8NL66XZWZ5;
-				INFOPLIST_FILE = "Watch ExperimentsTests/Info.plist";
+				INFOPLIST_FILE = MediTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Jess.Watch-ExperimentsTests";
+				PRODUCT_BUNDLE_IDENTIFIER = Jess.MediTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Watch Experiments.app/Watch Experiments";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Medi.app/Medi";
 			};
 			name = Debug;
 		};
@@ -745,17 +745,17 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8NL66XZWZ5;
-				INFOPLIST_FILE = "Watch ExperimentsTests/Info.plist";
+				INFOPLIST_FILE = MediTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Jess.Watch-ExperimentsTests";
+				PRODUCT_BUNDLE_IDENTIFIER = Jess.MediTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Watch Experiments.app/Watch Experiments";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Medi.app/Medi";
 			};
 			name = Release;
 		};
@@ -765,13 +765,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8NL66XZWZ5;
-				INFOPLIST_FILE = "Watch ExperimentsUITests/Info.plist";
+				INFOPLIST_FILE = MediUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Jess.Watch-ExperimentsUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = Jess.MediUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -785,13 +785,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8NL66XZWZ5;
-				INFOPLIST_FILE = "Watch ExperimentsUITests/Info.plist";
+				INFOPLIST_FILE = MediUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Jess.Watch-ExperimentsUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = Jess.MediUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -807,8 +807,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8NL66XZWZ5;
 				IBSC_MODULE = Watch_experiment_2_Extension;
-				INFOPLIST_FILE = "Watch experiment 2/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "Jess.Watch-Experiments.watchkitapp";
+				INFOPLIST_FILE = "Medi 2/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = Jess.Medi.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -826,8 +826,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8NL66XZWZ5;
 				IBSC_MODULE = Watch_experiment_2_Extension;
-				INFOPLIST_FILE = "Watch experiment 2/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "Jess.Watch-Experiments.watchkitapp";
+				INFOPLIST_FILE = "Medi 2/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = Jess.Medi.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -841,18 +841,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_ENTITLEMENTS = "Watch experiment 2 Extension/Watch experiment 2 Extension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Medi 2 Extension/Medi 2 Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Watch experiment 2 Extension/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Medi 2 Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = 8NL66XZWZ5;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Watch experiment 2 Extension/Info.plist";
+				INFOPLIST_FILE = "Medi 2 Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Jess.Watch-Experiments.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = Jess.Medi.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -866,18 +866,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_ENTITLEMENTS = "Watch experiment 2 Extension/Watch experiment 2 Extension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Medi 2 Extension/Medi 2 Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Watch experiment 2 Extension/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Medi 2 Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = 8NL66XZWZ5;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Watch experiment 2 Extension/Info.plist";
+				INFOPLIST_FILE = "Medi 2 Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Jess.Watch-Experiments.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = Jess.Medi.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -890,7 +890,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B29D7B5D2345F2EB0092AA23 /* Build configuration list for PBXProject "Watch Experiments" */ = {
+		B29D7B5D2345F2EB0092AA23 /* Build configuration list for PBXProject "Medi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B29D7B882345F2EE0092AA23 /* Debug */,
@@ -899,7 +899,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B29D7B8A2345F2EE0092AA23 /* Build configuration list for PBXNativeTarget "Watch Experiments" */ = {
+		B29D7B8A2345F2EE0092AA23 /* Build configuration list for PBXNativeTarget "Medi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B29D7B8B2345F2EE0092AA23 /* Debug */,
@@ -908,7 +908,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B29D7B8D2345F2EE0092AA23 /* Build configuration list for PBXNativeTarget "Watch ExperimentsTests" */ = {
+		B29D7B8D2345F2EE0092AA23 /* Build configuration list for PBXNativeTarget "MediTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B29D7B8E2345F2EE0092AA23 /* Debug */,
@@ -917,7 +917,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B29D7B902345F2EE0092AA23 /* Build configuration list for PBXNativeTarget "Watch ExperimentsUITests" */ = {
+		B29D7B902345F2EE0092AA23 /* Build configuration list for PBXNativeTarget "MediUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B29D7B912345F2EE0092AA23 /* Debug */,
@@ -926,7 +926,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B2FF199823466D0F00F2A2FC /* Build configuration list for PBXNativeTarget "Watch experiment 2 Extension" */ = {
+		B2FF199823466D0F00F2A2FC /* Build configuration list for PBXNativeTarget "Medi 2 Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B2FF199623466D0F00F2A2FC /* Debug */,
@@ -935,7 +935,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B2FF199923466D0F00F2A2FC /* Build configuration list for PBXNativeTarget "Watch experiment 2" */ = {
+		B2FF199923466D0F00F2A2FC /* Build configuration list for PBXNativeTarget "Medi 2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B2FF199323466D0F00F2A2FC /* Debug */,

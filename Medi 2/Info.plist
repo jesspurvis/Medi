@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Watch experiment 2 Extension</string>
+	<string>Watch Experiments</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -20,28 +20,14 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>NSExtension</key>
-	<dict>
-		<key>NSExtensionAttributes</key>
-		<dict>
-			<key>WKAppBundleIdentifier</key>
-			<string>Jess.Watch-Experiments.watchkitapp</string>
-		</dict>
-		<key>NSExtensionPointIdentifier</key>
-		<string>com.apple.watchkit</string>
-	</dict>
-	<key>NSHealthShareUsageDescription</key>
-	<string>Meditator wants to access your heartrate </string>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>Meditator wants to access your heartrate </string>
-	<key>UIBackgroundModes</key>
-	<array/>
-	<key>WKBackgroundModes</key>
+	<key>UISupportedInterfaceOrientations</key>
 	<array>
-		<string>mindfulness</string>
-		<string>workout-processing</string>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
-	<key>WKExtensionDelegateClassName</key>
-	<string>$(PRODUCT_MODULE_NAME).ExtensionDelegate</string>
+	<key>WKCompanionAppBundleIdentifier</key>
+	<string>Jess.Medi</string>
+	<key>WKWatchKitApp</key>
+	<true/>
 </dict>
 </plist>

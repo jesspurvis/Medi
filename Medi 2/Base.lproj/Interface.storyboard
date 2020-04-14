@@ -9,7 +9,7 @@
         <!--initialView-->
         <scene sceneID="Fog-gd-C0w">
             <objects>
-                <controller identifier="initialView" backgroundImage="annie-spratt-8mqOw4DBBSg-unsplash" contentMode="scaleAspectFill" fullBounds="YES" fullScreen="YES" id="SFg-Wp-Ckz" customClass="InitialViewController" customModule="Watch_experiment_2_Extension">
+                <controller identifier="initialView" backgroundImage="annie-spratt-8mqOw4DBBSg-unsplash" contentMode="scaleAspectFill" fullBounds="YES" fullScreen="YES" id="SFg-Wp-Ckz" customClass="InitialViewController" customModule="Medi_2_Extension">
                     <items>
                         <label alignment="center" text="Welcome" id="gQq-RK-SkU">
                             <fontDescription key="font" type="italicSystem" weight="bold" pointSize="30"/>
@@ -38,7 +38,7 @@
         <!--watchscreen-->
         <scene sceneID="I4c-uQ-2y2">
             <objects>
-                <controller identifier="watchscreen" backgroundImage="annie-spratt-8mqOw4DBBSg-unsplash" contentMode="scaleAspectFill" initiallyAnimated="NO" animationDuration="6" fullBounds="YES" fullScreen="YES" id="eeE-Cd-wUG" customClass="InterfaceController" customModule="Watch_experiment_2" customModuleProvider="target">
+                <controller identifier="watchscreen" backgroundImage="annie-spratt-8mqOw4DBBSg-unsplash" contentMode="scaleAspectFill" initiallyAnimated="NO" animationDuration="6" fullBounds="YES" fullScreen="YES" id="eeE-Cd-wUG" customClass="InterfaceController" customModule="Medi_2_Extension">
                     <items>
                         <label alignment="center" text="Label" id="BTd-Wa-2SI"/>
                         <label width="1" alignment="center" verticalAlignment="center" text="0" textAlignment="center" baselineAdjustment="alignCenters" id="eew-Ij-AY0">
@@ -69,7 +69,7 @@
         <!--resultView-->
         <scene sceneID="EY8-is-WSP">
             <objects>
-                <controller identifier="resultView" backgroundImage="annie-spratt-8mqOw4DBBSg-unsplash" contentMode="scaleAspectFill" fullBounds="YES" fullScreen="YES" id="mez-SM-urL" customClass="ResultViewController" customModule="Watch_experiment_2_Extension">
+                <controller identifier="resultView" backgroundImage="annie-spratt-8mqOw4DBBSg-unsplash" contentMode="scaleAspectFill" fullBounds="YES" fullScreen="YES" id="mez-SM-urL" customClass="ResultViewController" customModule="Medi_2_Extension">
                     <items>
                         <label alignment="center" verticalAlignment="center" text="Error value N/A" textAlignment="center" id="L3m-Mf-Kga"/>
                         <label alignment="center" text="Great Job!" id="nEP-8c-i0K">
