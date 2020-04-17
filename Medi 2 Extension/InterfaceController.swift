@@ -33,6 +33,9 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, HKLi
     
     var breatheTimer: Timer!
     
+    var sessionStart: Date!
+    var sessionStop: Date!
+    
     var seconds = 60
     
     var breatheInterval = 0
@@ -124,10 +127,6 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, HKLi
         }
         }
     
-    
-
-    
-    
 
     func animateHeart() {
         if beat == true {
@@ -155,8 +154,8 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, HKLi
     func runTimer(){
         //For every second that passes, call the update timer method
     timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updatetimer), userInfo: nil, repeats: true)
-        
     breatheTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateBreathe), userInfo: nil, repeats: true)
+    sessionStart = Date()
     
     }
     
@@ -170,10 +169,7 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, HKLi
     
     @objc func updatetimer(){
         if seconds < 0 {
-            endWorkout()
-            pushController(withName: "resultView", context: averageBeats)
-            timer.invalidate()
-            breatheTimer.invalidate()
+            endSession()
             //Context is the data I might want to add
         }
         else {
@@ -186,10 +182,8 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, HKLi
     @objc func updateBreathe(){
         breatheInterval = breatheInterval % 19
         
-        
-        
         if (breatheInterval <= 4){
-            BreatheLabel.setText("IN   \(breatheInterval)")
+            BreatheLabel.setText("IN \(breatheInterval)")
         }
         else if ((breatheInterval > 4) && (breatheInterval <= 11) ){
             BreatheLabel.setText("HOLD \(breatheInterval - 4)")
@@ -228,7 +222,42 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, HKLi
         }
         
     }
+    
+    func endSession(){
+        endWorkout()
+        sessionStop = Date()
+        saveMindfullnes()
+        timer.invalidate()
+        breatheTimer.invalidate()
+        pushController(withName: "resultView", context: averageBeats)
+    }
     // MARK: - Stub methods
+    
+    func saveMindfullnes(){
+        if let mindfulType = HKObjectType.categoryType(forIdentifier: .mindfulSession) {
+            
+            let mindfullSample = HKCategorySample(type:mindfulType, value: 0, start: sessionStart, end: sessionStop)
+
+            healthStore.save(mindfullSample, withCompletion: { (success, error) -> Void in
+                
+                
+                if !(error == nil) {
+                    return
+                }
+
+                if success {
+                    print("Yess")
+
+                } else {
+                    print(error!)
+                    
+                }
+                
+            })
+
+        }
+        
+    }
     
     
     func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
