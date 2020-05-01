@@ -17,7 +17,7 @@
 		B29D7B7B2345F2EE0092AA23 /* Watch_ExperimentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29D7B7A2345F2EE0092AA23 /* Watch_ExperimentsTests.swift */; };
 		B29D7B862345F2EE0092AA23 /* Watch_ExperimentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29D7B852345F2EE0092AA23 /* Watch_ExperimentsUITests.swift */; };
 		B2C35C592407308600318BA9 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C35C582407308600318BA9 /* HealthKit.framework */; };
-		B2C35C5B2407FF8100318BA9 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C35C5A2407FF8100318BA9 /* InterfaceController.swift */; };
+		B2C35C5B2407FF8100318BA9 /* WatchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C35C5A2407FF8100318BA9 /* WatchScreenController.swift */; };
 		B2C35C5F24095E3D00318BA9 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C35C5E24095E3D00318BA9 /* HealthKit.framework */; };
 		B2FF197123466D0900F2A2FC /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2FF196F23466D0900F2A2FC /* Interface.storyboard */; };
 		B2FF197323466D0C00F2A2FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2FF197223466D0C00F2A2FC /* Assets.xcassets */; };
@@ -128,7 +128,7 @@
 		B29D7B872345F2EE0092AA23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2C35C572407308600318BA9 /* Meditator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Meditator.entitlements; sourceTree = "<group>"; };
 		B2C35C582407308600318BA9 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		B2C35C5A2407FF8100318BA9 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		B2C35C5A2407FF8100318BA9 /* WatchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchScreenController.swift; sourceTree = "<group>"; };
 		B2C35C5D24095E3D00318BA9 /* Medi 2 Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Medi 2 Extension.entitlements"; sourceTree = "<group>"; };
 		B2C35C5E24095E3D00318BA9 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS6.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		B2FF196D23466D0900F2A2FC /* Medi 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Medi 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -261,7 +261,7 @@
 				B2C35C5D24095E3D00318BA9 /* Medi 2 Extension.entitlements */,
 				B298D128242B81B900E76775 /* InitialViewController.swift */,
 				B298D12A242B924700E76775 /* ResultViewController.swift */,
-				B2C35C5A2407FF8100318BA9 /* InterfaceController.swift */,
+				B2C35C5A2407FF8100318BA9 /* WatchScreenController.swift */,
 				B2FF198223466D0D00F2A2FC /* ExtensionDelegate.swift */,
 				B2FF198423466D0D00F2A2FC /* NotificationController.swift */,
 				B2FF198623466D0D00F2A2FC /* NotificationView.swift */,
@@ -503,7 +503,7 @@
 			files = (
 				B298D129242B81B900E76775 /* InitialViewController.swift in Sources */,
 				B2FF198523466D0D00F2A2FC /* NotificationController.swift in Sources */,
-				B2C35C5B2407FF8100318BA9 /* InterfaceController.swift in Sources */,
+				B2C35C5B2407FF8100318BA9 /* WatchScreenController.swift in Sources */,
 				B2FF198323466D0D00F2A2FC /* ExtensionDelegate.swift in Sources */,
 				B2FF198723466D0D00F2A2FC /* NotificationView.swift in Sources */,
 				B298D12B242B924700E76775 /* ResultViewController.swift in Sources */,

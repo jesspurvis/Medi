@@ -20,7 +20,7 @@ import WatchKit
 import HealthKit
 class ResultViewController : WKInterfaceController{
     
-       
+
     @IBOutlet weak var averageLabel: WKInterfaceLabel!
     
     @IBOutlet weak var ratingLabel: WKInterfaceLabel!
@@ -41,6 +41,13 @@ class ResultViewController : WKInterfaceController{
             print("Passed context is not an Int: \(String(describing: context))")
         }
     }
+    
+       
+    @IBAction func finsihButton() {
+        pushController(withName: "initialView", context: nil)
+    }
+    
+    
     
     
     

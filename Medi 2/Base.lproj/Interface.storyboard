@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SFg-Wp-Ckz">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16096" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SFg-Wp-Ckz">
     <device id="watch38"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="15501"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
     </dependencies>
     <scenes>
         <!--initialView-->
@@ -35,12 +35,14 @@
             </objects>
             <point key="canvasLocation" x="171" y="84"/>
         </scene>
-        <!--watchscreen-->
+        <!--watchScreen-->
         <scene sceneID="I4c-uQ-2y2">
             <objects>
-                <controller identifier="watchscreen" backgroundImage="annie-spratt-8mqOw4DBBSg-unsplash" contentMode="scaleAspectFill" initiallyAnimated="NO" animationDuration="6" fullBounds="YES" fullScreen="YES" id="eeE-Cd-wUG" customClass="InterfaceController" customModule="Medi_2_Extension">
+                <controller identifier="watchScreen" backgroundImage="annie-spratt-8mqOw4DBBSg-unsplash" contentMode="scaleAspectFill" initiallyAnimated="NO" animationDuration="6" fullBounds="YES" fullScreen="YES" id="eeE-Cd-wUG" customClass="WatchScreenController" customModule="Medi_2_Extension">
                     <items>
-                        <label alignment="center" text="Label" id="BTd-Wa-2SI"/>
+                        <label alignment="center" text="Label" id="BTd-Wa-2SI">
+                            <fontDescription key="font" type="system" weight="semibold" pointSize="18"/>
+                        </label>
                         <label width="1" alignment="center" verticalAlignment="center" text="0" textAlignment="center" baselineAdjustment="alignCenters" id="eew-Ij-AY0">
                             <fontDescription key="font" type="system" pointSize="20"/>
                         </label>
@@ -71,7 +73,9 @@
             <objects>
                 <controller identifier="resultView" backgroundImage="annie-spratt-8mqOw4DBBSg-unsplash" contentMode="scaleAspectFill" fullBounds="YES" fullScreen="YES" id="mez-SM-urL" customClass="ResultViewController" customModule="Medi_2_Extension">
                     <items>
-                        <label alignment="center" verticalAlignment="center" text="Error value N/A" textAlignment="center" id="L3m-Mf-Kga"/>
+                        <label alignment="center" verticalAlignment="center" text="Error value N/A" textAlignment="center" id="L3m-Mf-Kga">
+                            <fontDescription key="font" type="system" pointSize="19"/>
+                        </label>
                         <label alignment="center" text="Great Job!" id="nEP-8c-i0K">
                             <fontDescription key="font" type="italicSystem" weight="bold" pointSize="25"/>
                         </label>
@@ -81,6 +85,11 @@
                         <label alignment="center" verticalAlignment="center" id="hdJ-qD-LcL" userLabel="Rating">
                             <fontDescription key="font" type="italicSystem" pointSize="16"/>
                         </label>
+                        <button alignment="center" verticalAlignment="bottom" title="Finish" id="xon-81-BVi">
+                            <connections>
+                                <action selector="finsihButton" destination="mez-SM-urL" id="bWv-Bu-Ew2"/>
+                            </connections>
+                        </button>
                     </items>
                     <connections>
                         <outlet property="averageLabel" destination="L3m-Mf-Kga" id="G8e-LU-Snt"/>
@@ -93,6 +102,6 @@
     </scenes>
     <resources>
         <image name="annie-spratt-8mqOw4DBBSg-unsplash" width="2991" height="2991"/>
-        <image name="heart.fill" catalog="system" width="64" height="52"/>
+        <image name="heart.fill" catalog="system" width="128" height="105"/>
     </resources>
 </document>

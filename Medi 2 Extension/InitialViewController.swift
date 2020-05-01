@@ -67,7 +67,7 @@ class InitialViewController : WKInterfaceController{
     
     @IBAction func StartSession() {
         if (permissions){
-            pushController(withName: "watchscreen", context: sessionLength)
+            pushController(withName: "watchScreen", context: sessionLength)
             
         }
         else{

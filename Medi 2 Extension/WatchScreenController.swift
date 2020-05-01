@@ -12,7 +12,7 @@ import HealthKit
 import WatchKit
 import WatchConnectivity
 
-class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDelegate {
+class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDelegate {
     
     
     // MARK: - Variable declares
@@ -59,7 +59,7 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, HKLi
         super.awake(withContext: context)
         
         if let sessionLength = context as? Int{
-            seconds = sessionLength + 1 //The ++ is due to a bug of setting timer - 1
+            seconds = sessionLength //The ++ is due to a bug of setting timer - 1
            SecondsLabel.setText(timeString(time: TimeInterval(seconds)))
         } else {
             print("Passed context is not an Int: \(String(describing: context))")
@@ -184,13 +184,19 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, HKLi
         
         if (breatheInterval <= 4){
             BreatheLabel.setText("IN \(breatheInterval)")
+            if breatheInterval == 0 {
+                WKInterfaceDevice.current().play(WKHapticType.directionUp)}
         }
         else if ((breatheInterval > 4) && (breatheInterval <= 11) ){
             BreatheLabel.setText("HOLD \(breatheInterval - 4)")
+            if breatheInterval == 5 {
+                WKInterfaceDevice.current().play(WKHapticType.start)}
             
         }
         else {
             BreatheLabel.setText("OUT \(breatheInterval - 11)")
+            if breatheInterval == 12 {
+                WKInterfaceDevice.current().play(WKHapticType.directionDown)}
         }
         
         
