@@ -31,9 +31,9 @@
 		<string>com.apple.watchkit</string>
 	</dict>
 	<key>NSHealthShareUsageDescription</key>
-	<string>Meditator wants to access your heartrate </string>
+	<string>Medi needs to access your heart rate to work</string>
 	<key>NSHealthUpdateUsageDescription</key>
-	<string>Meditator wants to access your heartrate </string>
+	<string>Medi needs to access your heart rate to work</string>
 	<key>UIBackgroundModes</key>
 	<array/>
 	<key>WKBackgroundModes</key>

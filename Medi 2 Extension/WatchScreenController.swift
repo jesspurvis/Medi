@@ -10,7 +10,6 @@ import SwiftUI
 import Foundation
 import HealthKit
 import WatchKit
-import WatchConnectivity
 
 class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDelegate {
     
@@ -52,9 +51,7 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
     let beatCountPerMinute = HKUnit(from: "count/min")
     
     // MARK: - Initialisation methods
-    
-    
-    
+
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
@@ -91,7 +88,6 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
         }
     }
     
-    
         override func didDeactivate() {
             // This method is called when watch view controller is no longer visible
             super.didDeactivate()
@@ -115,7 +111,7 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
         
         averageBeats = Int(statistics.averageQuantity()!.doubleValue(for: heartRateUnit))
         
-        //TODO: Change these values at some point, remember to use Doubles
+        
     
         switch roundedValue {
         case _ where roundedValue > 74.0:
@@ -126,28 +122,6 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
             HeartrateLabel.setTextColor(.green)
         }
         }
-    
-
-    func animateHeart() {
-        if beat == true {
-            self.animate(withDuration: 2) {
-                self.HeartImage.setWidth(30)
-                self.HeartImage.setHeight(45)
-              }
-            beat = false
-        }
-        else {
-            self.animate(withDuration: 2) {
-                    self.HeartImage.setWidth(50)
-                    self.HeartImage.setHeight(65)
-                }
-              beat = true
-        }
-    }
-        
-    
-    
-    
     
     // MARK: - Timer methods
     
@@ -170,12 +144,11 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
     @objc func updatetimer(){
         if seconds < 0 {
             endSession()
-            //Context is the data I might want to add
         }
         else {
         seconds -= 1
         SecondsLabel.setText(timeString(time: TimeInterval(seconds)))
-            animateHeart()
+            //animateHeart()
         }
     }
     
@@ -185,23 +158,34 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
         if (breatheInterval <= 4){
             BreatheLabel.setText("IN \(breatheInterval)")
             if breatheInterval == 0 {
-                WKInterfaceDevice.current().play(WKHapticType.directionUp)}
+                WKInterfaceDevice.current().play(WKHapticType.directionUp)
+                self.animate(withDuration: 4) {
+                        self.HeartImage.setWidth(50)
+                        self.HeartImage.setHeight(65)
+                    }
+            }
         }
         else if ((breatheInterval > 4) && (breatheInterval <= 11) ){
             BreatheLabel.setText("HOLD \(breatheInterval - 4)")
             if breatheInterval == 5 {
-                WKInterfaceDevice.current().play(WKHapticType.start)}
-            
-        }
+                WKInterfaceDevice.current().play(WKHapticType.stop)}
+            }
+        
         else {
             BreatheLabel.setText("OUT \(breatheInterval - 11)")
             if breatheInterval == 12 {
-                WKInterfaceDevice.current().play(WKHapticType.directionDown)}
+                WKInterfaceDevice.current().play(WKHapticType.directionDown)
+        
+                self.animate(withDuration: 8) {
+                    self.HeartImage.setWidth(30)
+                    self.HeartImage.setHeight(45)
+                }
+                
+            }
+        
         }
-        
-        
+
         breatheInterval += 1
-        
     }
     
     
@@ -236,6 +220,7 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
         timer.invalidate()
         breatheTimer.invalidate()
         pushController(withName: "resultView", context: averageBeats)
+        
     }
     // MARK: - Stub methods
     
@@ -309,10 +294,5 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
         }
     }
     
-    
-    
-
-    
-    
+  
 }
-

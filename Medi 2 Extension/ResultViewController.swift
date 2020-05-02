@@ -43,7 +43,7 @@ class ResultViewController : WKInterfaceController{
     }
     
        
-    @IBAction func finsihButton() {
+    @IBAction func finishButton() {
         pushController(withName: "initialView", context: nil)
     }
     

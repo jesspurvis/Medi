@@ -86,8 +86,9 @@
                             <fontDescription key="font" type="italicSystem" pointSize="16"/>
                         </label>
                         <button alignment="center" verticalAlignment="bottom" title="Finish" id="xon-81-BVi">
+                            <fontDescription key="font" type="italicSystem" weight="semibold" pointSize="23"/>
                             <connections>
-                                <action selector="finsihButton" destination="mez-SM-urL" id="bWv-Bu-Ew2"/>
+                                <action selector="finishButton" destination="mez-SM-urL" id="bWv-Bu-Ew2"/>
                             </connections>
                         </button>
                     </items>

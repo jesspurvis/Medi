@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B25DC1A5245D8675001538C5 /* MeditatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25DC1A4245D8675001538C5 /* MeditatorTests.swift */; };
 		B298D129242B81B900E76775 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B298D128242B81B900E76775 /* InitialViewController.swift */; };
 		B298D12B242B924700E76775 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B298D12A242B924700E76775 /* ResultViewController.swift */; };
 		B29D7B662345F2EB0092AA23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29D7B652345F2EB0092AA23 /* AppDelegate.swift */; };
@@ -14,8 +15,6 @@
 		B29D7B6B2345F2EB0092AA23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B29D7B692345F2EB0092AA23 /* Main.storyboard */; };
 		B29D7B6D2345F2EE0092AA23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B29D7B6C2345F2EE0092AA23 /* Assets.xcassets */; };
 		B29D7B702345F2EE0092AA23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B29D7B6E2345F2EE0092AA23 /* LaunchScreen.storyboard */; };
-		B29D7B7B2345F2EE0092AA23 /* Watch_ExperimentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29D7B7A2345F2EE0092AA23 /* Watch_ExperimentsTests.swift */; };
-		B29D7B862345F2EE0092AA23 /* Watch_ExperimentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29D7B852345F2EE0092AA23 /* Watch_ExperimentsUITests.swift */; };
 		B2C35C592407308600318BA9 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C35C582407308600318BA9 /* HealthKit.framework */; };
 		B2C35C5B2407FF8100318BA9 /* WatchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C35C5A2407FF8100318BA9 /* WatchScreenController.swift */; };
 		B2C35C5F24095E3D00318BA9 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C35C5E24095E3D00318BA9 /* HealthKit.framework */; };
@@ -45,6 +44,13 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
+		B25DC1A7245D8675001538C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B29D7B5A2345F2EB0092AA23 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B29D7B612345F2EB0092AA23;
+			remoteInfo = Medi;
+		};
 		B29D7B772345F2EE0092AA23 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B29D7B5A2345F2EB0092AA23 /* Project object */;
@@ -111,6 +117,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B25DC1A2245D8675001538C5 /* MeditatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeditatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B25DC1A4245D8675001538C5 /* MeditatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditatorTests.swift; sourceTree = "<group>"; };
+		B25DC1A6245D8675001538C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B298D128242B81B900E76775 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		B298D12A242B924700E76775 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		B29D7B622345F2EB0092AA23 /* Meditator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meditator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,11 +130,7 @@
 		B29D7B6F2345F2EE0092AA23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B29D7B712345F2EE0092AA23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B29D7B762345F2EE0092AA23 /* MediTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MediTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B29D7B7A2345F2EE0092AA23 /* Watch_ExperimentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_ExperimentsTests.swift; sourceTree = "<group>"; };
-		B29D7B7C2345F2EE0092AA23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B29D7B812345F2EE0092AA23 /* MediUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MediUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B29D7B852345F2EE0092AA23 /* Watch_ExperimentsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch_ExperimentsUITests.swift; sourceTree = "<group>"; };
-		B29D7B872345F2EE0092AA23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2C35C572407308600318BA9 /* Meditator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Meditator.entitlements; sourceTree = "<group>"; };
 		B2C35C582407308600318BA9 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		B2C35C5A2407FF8100318BA9 /* WatchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchScreenController.swift; sourceTree = "<group>"; };
@@ -146,6 +151,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B25DC19F245D8675001538C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B29D7B5F2345F2EB0092AA23 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -179,14 +191,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B25DC1A3245D8675001538C5 /* MeditatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				B25DC1A4245D8675001538C5 /* MeditatorTests.swift */,
+				B25DC1A6245D8675001538C5 /* Info.plist */,
+			);
+			path = MeditatorTests;
+			sourceTree = "<group>";
+		};
 		B29D7B592345F2EB0092AA23 = {
 			isa = PBXGroup;
 			children = (
 				B29D7B642345F2EB0092AA23 /* Medi */,
-				B29D7B792345F2EE0092AA23 /* MediTests */,
-				B29D7B842345F2EE0092AA23 /* MediUITests */,
 				B2FF196E23466D0900F2A2FC /* Medi 2 */,
 				B2FF197D23466D0D00F2A2FC /* Medi 2 Extension */,
+				B25DC1A3245D8675001538C5 /* MeditatorTests */,
 				B29D7B632345F2EB0092AA23 /* Products */,
 				B2C35C4F2406F62D00318BA9 /* Frameworks */,
 			);
@@ -200,6 +220,7 @@
 				B29D7B812345F2EE0092AA23 /* MediUITests.xctest */,
 				B2FF196D23466D0900F2A2FC /* Medi 2.app */,
 				B2FF197923466D0D00F2A2FC /* Medi 2 Extension.appex */,
+				B25DC1A2245D8675001538C5 /* MeditatorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -216,24 +237,6 @@
 				B29D7B712345F2EE0092AA23 /* Info.plist */,
 			);
 			path = Medi;
-			sourceTree = "<group>";
-		};
-		B29D7B792345F2EE0092AA23 /* MediTests */ = {
-			isa = PBXGroup;
-			children = (
-				B29D7B7A2345F2EE0092AA23 /* Watch_ExperimentsTests.swift */,
-				B29D7B7C2345F2EE0092AA23 /* Info.plist */,
-			);
-			path = MediTests;
-			sourceTree = "<group>";
-		};
-		B29D7B842345F2EE0092AA23 /* MediUITests */ = {
-			isa = PBXGroup;
-			children = (
-				B29D7B852345F2EE0092AA23 /* Watch_ExperimentsUITests.swift */,
-				B29D7B872345F2EE0092AA23 /* Info.plist */,
-			);
-			path = MediUITests;
 			sourceTree = "<group>";
 		};
 		B2C35C4F2406F62D00318BA9 /* Frameworks */ = {
@@ -260,8 +263,8 @@
 			children = (
 				B2C35C5D24095E3D00318BA9 /* Medi 2 Extension.entitlements */,
 				B298D128242B81B900E76775 /* InitialViewController.swift */,
-				B298D12A242B924700E76775 /* ResultViewController.swift */,
 				B2C35C5A2407FF8100318BA9 /* WatchScreenController.swift */,
+				B298D12A242B924700E76775 /* ResultViewController.swift */,
 				B2FF198223466D0D00F2A2FC /* ExtensionDelegate.swift */,
 				B2FF198423466D0D00F2A2FC /* NotificationController.swift */,
 				B2FF198623466D0D00F2A2FC /* NotificationView.swift */,
@@ -284,6 +287,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B25DC1A1245D8675001538C5 /* MeditatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B25DC1A9245D8675001538C5 /* Build configuration list for PBXNativeTarget "MeditatorTests" */;
+			buildPhases = (
+				B25DC19E245D8675001538C5 /* Sources */,
+				B25DC19F245D8675001538C5 /* Frameworks */,
+				B25DC1A0245D8675001538C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B25DC1A8245D8675001538C5 /* PBXTargetDependency */,
+			);
+			name = MeditatorTests;
+			productName = MeditatorTests;
+			productReference = B25DC1A2245D8675001538C5 /* MeditatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B29D7B612345F2EB0092AA23 /* Medi */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B29D7B8A2345F2EE0092AA23 /* Build configuration list for PBXNativeTarget "Medi" */;
@@ -381,10 +402,14 @@
 		B29D7B5A2345F2EB0092AA23 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = "Jess Purvis";
 				TargetAttributes = {
+					B25DC1A1245D8675001538C5 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = B29D7B612345F2EB0092AA23;
+					};
 					B29D7B612345F2EB0092AA23 = {
 						CreatedOnToolsVersion = 10.3;
 					};
@@ -422,11 +447,19 @@
 				B29D7B802345F2EE0092AA23 /* MediUITests */,
 				B2FF196C23466D0900F2A2FC /* Medi 2 */,
 				B2FF197823466D0D00F2A2FC /* Medi 2 Extension */,
+				B25DC1A1245D8675001538C5 /* MeditatorTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B25DC1A0245D8675001538C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B29D7B602345F2EB0092AA23 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -472,6 +505,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B25DC19E245D8675001538C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B25DC1A5245D8675001538C5 /* MeditatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B29D7B5E2345F2EB0092AA23 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -485,7 +526,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B29D7B7B2345F2EE0092AA23 /* Watch_ExperimentsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,7 +533,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B29D7B862345F2EE0092AA23 /* Watch_ExperimentsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,6 +552,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B25DC1A8245D8675001538C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B29D7B612345F2EB0092AA23 /* Medi */;
+			targetProxy = B25DC1A7245D8675001538C5 /* PBXContainerItemProxy */;
+		};
 		B29D7B782345F2EE0092AA23 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B29D7B612345F2EB0092AA23 /* Medi */;
@@ -563,6 +607,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B25DC1AA245D8675001538C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8NL66XZWZ5;
+				INFOPLIST_FILE = MeditatorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Jess.MeditatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Meditator.app/Meditator";
+			};
+			name = Debug;
+		};
+		B25DC1AB245D8675001538C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8NL66XZWZ5;
+				INFOPLIST_FILE = MeditatorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Jess.MeditatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Meditator.app/Meditator";
+			};
+			name = Release;
+		};
 		B29D7B882345F2EE0092AA23 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -890,6 +976,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B25DC1A9245D8675001538C5 /* Build configuration list for PBXNativeTarget "MeditatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B25DC1AA245D8675001538C5 /* Debug */,
+				B25DC1AB245D8675001538C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B29D7B5D2345F2EB0092AA23 /* Build configuration list for PBXProject "Medi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

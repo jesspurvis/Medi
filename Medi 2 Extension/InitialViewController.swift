@@ -71,13 +71,12 @@ class InitialViewController : WKInterfaceController{
             
         }
         else{
-            timeLabel.setText("Please give permissions")
+            timeLabel.setText("Please give permissions, Please enter in app settings")
             
         }
     }
     
     func TimeString(time:TimeInterval) -> String {
-    
     let minutes = Int(time) / 60 % 60
     let seconds = Int(time) % 60
     return String(format:"%02i:%02i", minutes, seconds)
