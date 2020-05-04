@@ -14,7 +14,7 @@ import WatchKit
 class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HKLiveWorkoutBuilderDelegate {
     
     
-    // MARK: - Variable declares
+    // MARK: - Variable declarations
     
     @IBOutlet weak var BreatheLabel: WKInterfaceLabel!
     @IBOutlet weak var SecondsLabel: WKInterfaceLabel!
@@ -111,8 +111,6 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
         
         averageBeats = Int(statistics.averageQuantity()!.doubleValue(for: heartRateUnit))
         
-        
-    
         switch roundedValue {
         case _ where roundedValue > 74.0:
             HeartrateLabel.setTextColor(.red)
@@ -169,8 +167,7 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
             BreatheLabel.setText("HOLD \(breatheInterval - 4)")
             if breatheInterval == 5 {
                 WKInterfaceDevice.current().play(WKHapticType.stop)}
-            }
-        
+        }
         else {
             BreatheLabel.setText("OUT \(breatheInterval - 11)")
             if breatheInterval == 12 {
@@ -180,11 +177,8 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
                     self.HeartImage.setWidth(30)
                     self.HeartImage.setHeight(45)
                 }
-                
             }
-        
         }
-
         breatheInterval += 1
     }
     
@@ -226,28 +220,22 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
     
     func saveMindfullnes(){
         if let mindfulType = HKObjectType.categoryType(forIdentifier: .mindfulSession) {
-            
-            let mindfullSample = HKCategorySample(type:mindfulType, value: 0, start: sessionStart, end: sessionStop)
 
+            let mindfullSample = HKCategorySample(type:mindfulType, value: 0, start: sessionStart, end: sessionStop)
+            
             healthStore.save(mindfullSample, withCompletion: { (success, error) -> Void in
-                
-                
                 if !(error == nil) {
                     return
                 }
-
                 if success {
                     print("Yess")
-
                 } else {
                     print(error!)
-                    
                 }
                 
             })
-
+            
         }
-        
     }
     
     
@@ -263,7 +251,7 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
         
         for type in collectedTypes {
         guard let quantityType = type as? HKQuantityType else {
-            return // Nothing to do.
+            return
         }
             
             
@@ -276,17 +264,14 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
     
     func workoutBuilderDidCollectEvent(_ workoutBuilder: HKLiveWorkoutBuilder) {
         _ = workoutBuilder.workoutEvents.last
-        //let lastEvent = workoutBuilder.workoutEvents.last  IF breaks set back to this
+        //let lastEvent = workoutBuilder.workoutEvents.last  IF it breaks set back to this
     }
     
     func endWorkout() {
-        /// Update the timer based on the state we are in.
-        /// - Tag: SaveWorkout
         WKInterfaceDevice.current().play(WKHapticType.success)
         session.end()
         builder.endCollection(withEnd: Date()) { (success, error) in
             self.builder.finishWorkout { (workout, error) in
-                // Dispatch to main, because we are updating the interface.
                 DispatchQueue.main.async() {
                     self.dismiss()
                 }

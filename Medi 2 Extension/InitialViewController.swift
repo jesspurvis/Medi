@@ -39,21 +39,13 @@ class InitialViewController : WKInterfaceController{
     ]
         
     healthStore.requestAuthorization(toShare: typesToShare, read: typesToRead) { (success, error) in
-        if !success{ print("Issue with permissions, please try again")
+        if let error = error {
+            print("Error requesting health kit authorization: \(error)")
             self.permissions = false
         }
-        else{
-            self.permissions = true
-            
-        }
-        
-        }
- 
-        
+    }
         
     }
-    
-    
     
     // MARK: - Slider and Start
     
@@ -66,13 +58,11 @@ class InitialViewController : WKInterfaceController{
     
     
     @IBAction func StartSession() {
-        if (permissions){
+        if (permissions == true){
             pushController(withName: "watchScreen", context: sessionLength)
-            
         }
         else{
-            timeLabel.setText("Please give permissions, Please enter in app settings")
-            
+            timeLabel.setText("Please give permissions, Please change this in app settings")
         }
     }
     
