@@ -24,11 +24,8 @@ class ResultViewController : WKInterfaceController{
     @IBOutlet weak var averageLabel: WKInterfaceLabel!
     
     @IBOutlet weak var ratingLabel: WKInterfaceLabel!
-    
-    
-    var isFemale = false
-    var age = 0
-    var rating = 0
+
+
     
     let healthStore = HKHealthStore()
     

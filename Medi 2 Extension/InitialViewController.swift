@@ -17,8 +17,7 @@ class InitialViewController : WKInterfaceController{
     @IBOutlet weak var timeLabel: WKInterfaceLabel!
     
     var sessionLength = 60
-    var permissions = false
-    
+
     
     
     
@@ -32,8 +31,6 @@ class InitialViewController : WKInterfaceController{
     
     let typesToRead: Set = [
         HKQuantityType.quantityType(forIdentifier: .heartRate)!,
-        HKQuantityType.characteristicType(forIdentifier: .dateOfBirth)!,
-        HKQuantityType.characteristicType(forIdentifier: .biologicalSex)!,
         HKQuantityType.categoryType(forIdentifier: .mindfulSession)!
         
     ]
@@ -41,9 +38,10 @@ class InitialViewController : WKInterfaceController{
     healthStore.requestAuthorization(toShare: typesToShare, read: typesToRead) { (success, error) in
         if let error = error {
             print("Error requesting health kit authorization: \(error)")
-            self.permissions = false
         }
     }
+        
+        
         
     }
     
@@ -57,12 +55,14 @@ class InitialViewController : WKInterfaceController{
     
     
     
+    
     @IBAction func StartSession() {
-        if (permissions == true){
-            pushController(withName: "watchScreen", context: sessionLength)
+        let authorizationStatus = healthStore.authorizationStatus(for: HKSampleType.workoutType())
+        if authorizationStatus == .sharingDenied{
+            timeLabel.setText("Please give permissions,by changing this in the settings")
         }
         else{
-            timeLabel.setText("Please give permissions, Please change this in app settings")
+            pushController(withName: "watchScreen", context: sessionLength)
         }
     }
     
