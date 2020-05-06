@@ -25,15 +25,17 @@ class ResultViewController : WKInterfaceController{
     
     @IBOutlet weak var ratingLabel: WKInterfaceLabel!
 
-
+    @IBOutlet weak var highBeatLabel: WKInterfaceLabel!
+    
     
     let healthStore = HKHealthStore()
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
-        if let average = context as? Int{
-           averageLabel.setText(String(average))
+        if let beats = context as? [Int]{
+            averageLabel.setText(String(beats[0]))
+            highBeatLabel.setText("Down from: " + String(beats[1]))
         } else {
             print("Passed context is not an Int: \(String(describing: context))")
         }

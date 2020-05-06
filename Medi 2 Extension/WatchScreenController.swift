@@ -41,13 +41,13 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
 
     var began =  false
     
-    var beat = true
     
-    var totalBeats = 0.0
+    var maximumBeat = 0
     
     var averageBeats = 0
+    
 
-    var lastHeartRate = 0.0
+
     let beatCountPerMinute = HKUnit(from: "count/min")
     
     // MARK: - Initialisation methods
@@ -110,6 +110,9 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
         HeartrateLabel.setText("\(roundedValue) BPM")
         
         averageBeats = Int(statistics.averageQuantity()!.doubleValue(for: heartRateUnit))
+        
+        maximumBeat = Int(statistics.maximumQuantity()!.doubleValue(for: heartRateUnit))
+        
         
         switch roundedValue {
         case _ where roundedValue > 74.0:
@@ -208,12 +211,15 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
     }
     
     func endSession(){
+        let beats = [averageBeats, maximumBeat]
+        timer.invalidate()
+        breatheTimer.invalidate()
         endWorkout()
         sessionStop = Date()
         saveMindfullnes()
-        timer.invalidate()
-        breatheTimer.invalidate()
-        pushController(withName: "resultView", context: averageBeats)
+
+        
+        pushController(withName: "resultView", context: beats)
         
     }
     // MARK: - Stub methods
@@ -228,7 +234,7 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
                     return
                 }
                 if success {
-                    print("Yess")
+                    print("Saved")
                 } else {
                     print(error!)
                 }
@@ -268,6 +274,7 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
     }
     
     func endWorkout() {
+        
         WKInterfaceDevice.current().play(WKHapticType.success)
         session.end()
         builder.endCollection(withEnd: Date()) { (success, error) in

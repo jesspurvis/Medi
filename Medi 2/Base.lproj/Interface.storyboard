@@ -20,7 +20,7 @@
                             </connections>
                         </slider>
                         <label alignment="right" text="1:00" id="vpW-XT-Y0N"/>
-                        <button alignment="center" verticalAlignment="bottom" title="Next" id="5B4-j5-clx">
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="Next" id="5B4-j5-clx">
                             <fontDescription key="font" type="italicSystem" weight="semibold" pointSize="23"/>
                             <connections>
                                 <action selector="StartSession" destination="SFg-Wp-Ckz" id="8yl-Ej-Thv"/>
@@ -50,7 +50,7 @@
                             <color key="tintColor" red="1" green="0.19320292350485113" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </imageView>
                         <label alignment="center" verticalAlignment="center" id="ytt-17-jzu"/>
-                        <button alignment="center" verticalAlignment="bottom" title="Begin" id="lNq-R6-T9N">
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="Begin" id="lNq-R6-T9N">
                             <fontDescription key="font" type="italicSystem" weight="semibold" pointSize="23"/>
                             <connections>
                                 <action selector="BeginTapped" destination="eeE-Cd-wUG" id="qTz-3g-eRP"/>
@@ -85,7 +85,8 @@
                         <label alignment="center" verticalAlignment="center" id="hdJ-qD-LcL" userLabel="Rating">
                             <fontDescription key="font" type="italicSystem" pointSize="16"/>
                         </label>
-                        <button alignment="center" verticalAlignment="bottom" title="Finish" id="xon-81-BVi">
+                        <label alignment="center" verticalAlignment="center" id="Qkw-lC-cXE" userLabel="HighestBeat"/>
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="Finish" id="xon-81-BVi">
                             <fontDescription key="font" type="italicSystem" weight="semibold" pointSize="23"/>
                             <connections>
                                 <action selector="finishButton" destination="mez-SM-urL" id="bWv-Bu-Ew2"/>
@@ -94,6 +95,7 @@
                     </items>
                     <connections>
                         <outlet property="averageLabel" destination="L3m-Mf-Kga" id="G8e-LU-Snt"/>
+                        <outlet property="highBeatLabel" destination="Qkw-lC-cXE" id="qmx-Yb-28D"/>
                         <outlet property="ratingLabel" destination="hdJ-qD-LcL" id="kZk-G5-MkS"/>
                     </connections>
                 </controller>
