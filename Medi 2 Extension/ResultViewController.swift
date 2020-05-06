@@ -20,13 +20,9 @@ import WatchKit
 import HealthKit
 class ResultViewController : WKInterfaceController{
     
-
     @IBOutlet weak var averageLabel: WKInterfaceLabel!
-    
     @IBOutlet weak var ratingLabel: WKInterfaceLabel!
-
     @IBOutlet weak var highBeatLabel: WKInterfaceLabel!
-    
     
     let healthStore = HKHealthStore()
     
@@ -45,10 +41,7 @@ class ResultViewController : WKInterfaceController{
     @IBAction func finishButton() {
         pushController(withName: "initialView", context: nil)
     }
-    
-    
-    
-    
+
     
 /**
     

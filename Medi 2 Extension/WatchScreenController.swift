@@ -26,32 +26,21 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
     var configuration = HKWorkoutConfiguration()
     var session: HKWorkoutSession!
     var builder: HKLiveWorkoutBuilder!
-    
 
     var timer: Timer!
-    
     var breatheTimer: Timer!
     
     var sessionStart: Date!
     var sessionStop: Date!
     
     var seconds = 60
-    
     var breatheInterval = 0
 
     var began =  false
     
-    
     var maximumBeat = 0
-    
     var averageBeats = 0
-    
-
-
-    let beatCountPerMinute = HKUnit(from: "count/min")
-    
     // MARK: - Initialisation methods
-
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
@@ -88,15 +77,13 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
         }
     }
     
-        override func didDeactivate() {
-            // This method is called when watch view controller is no longer visible
-            super.didDeactivate()
-        }
+    override func didDeactivate() {
+        super.didDeactivate()
+    }
     
-    
-        override func willActivate(){
-            super.willActivate()
-        }
+    override func willActivate(){
+        super.willActivate()
+    }
     
     // MARK: - Visual
     private func updateHeartRateLabel(withStatistics statistics: HKStatistics?) {
@@ -110,7 +97,6 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
         HeartrateLabel.setText("\(roundedValue) BPM")
         
         averageBeats = Int(statistics.averageQuantity()!.doubleValue(for: heartRateUnit))
-        
         maximumBeat = Int(statistics.maximumQuantity()!.doubleValue(for: heartRateUnit))
         
         
@@ -122,28 +108,27 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
         default:
             HeartrateLabel.setTextColor(.green)
         }
-        }
+    }
     
     // MARK: - Timer methods
     
     func runTimer(){
         //For every second that passes, call the update timer method
-    timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updatetimer), userInfo: nil, repeats: true)
-    breatheTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateBreathe), userInfo: nil, repeats: true)
-    sessionStart = Date()
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updatetimer), userInfo: nil, repeats: true)
+        breatheTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateBreathe), userInfo: nil, repeats: true)
+        sessionStart = Date()
     
     }
     
     func timeString(time:TimeInterval) -> String {
-    
-    let minutes = Int(time) / 60 % 60
-    let seconds = Int(time) % 60
-    return String(format:"%02i:%02i", minutes, seconds)
+        let minutes = Int(time) / 60 % 60
+        let seconds = Int(time) % 60
+        return String(format:"%02i:%02i", minutes, seconds)
     }
     
     
     @objc func updatetimer(){
-        if seconds < 0 {
+        if seconds == 0 {
             endSession()
         }
         else {
@@ -155,7 +140,6 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
     
     @objc func updateBreathe(){
         breatheInterval = breatheInterval % 19
-        
         if (breatheInterval <= 4){
             BreatheLabel.setText("IN \(breatheInterval)")
             if breatheInterval == 0 {
@@ -175,7 +159,6 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
             BreatheLabel.setText("OUT \(breatheInterval - 11)")
             if breatheInterval == 12 {
                 WKInterfaceDevice.current().play(WKHapticType.directionDown)
-        
                 self.animate(withDuration: 8) {
                     self.HeartImage.setWidth(30)
                     self.HeartImage.setHeight(45)
@@ -189,25 +172,18 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
 
     @IBAction func BeginTapped() {
         if began == true{
-            
             BeginButton.setTitle("Start")
-            //SessionTimer.start()
             timer.invalidate()
             breatheTimer.invalidate()
-            
             began = false
             WKInterfaceDevice.current().play(WKHapticType.start)
-                
         }
         else{
             BeginButton.setTitle("Stop")
-            //SessionTimer.stop()
             began = true
             runTimer()
             WKInterfaceDevice.current().play(WKHapticType.stop)
-            
         }
-        
     }
     
     func endSession(){
@@ -217,18 +193,13 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
         endWorkout()
         sessionStop = Date()
         saveMindfullnes()
-
-        
         pushController(withName: "resultView", context: beats)
-        
     }
     // MARK: - Stub methods
     
     func saveMindfullnes(){
         if let mindfulType = HKObjectType.categoryType(forIdentifier: .mindfulSession) {
-
             let mindfullSample = HKCategorySample(type:mindfulType, value: 0, start: sessionStart, end: sessionStop)
-            
             healthStore.save(mindfullSample, withCompletion: { (success, error) -> Void in
                 if !(error == nil) {
                     return
@@ -238,9 +209,7 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
                 } else {
                     print(error!)
                 }
-                
             })
-            
         }
     }
     
@@ -256,25 +225,20 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
     func workoutBuilder(_ workoutBuilder: HKLiveWorkoutBuilder, didCollectDataOf collectedTypes: Set<HKSampleType>) {
         
         for type in collectedTypes {
-        guard let quantityType = type as? HKQuantityType else {
-            return
+            guard let quantityType = type as? HKQuantityType else {
+                return
+            }
+            let statistics = workoutBuilder.statistics(for: quantityType)
+            updateHeartRateLabel(withStatistics: statistics)
+        
         }
-            
-            
-        let statistics = workoutBuilder.statistics(for: quantityType)
-        
-                updateHeartRateLabel(withStatistics: statistics)
-        
-    }
     }
     
     func workoutBuilderDidCollectEvent(_ workoutBuilder: HKLiveWorkoutBuilder) {
         _ = workoutBuilder.workoutEvents.last
-        //let lastEvent = workoutBuilder.workoutEvents.last  IF it breaks set back to this
     }
     
     func endWorkout() {
-        
         WKInterfaceDevice.current().play(WKHapticType.success)
         session.end()
         builder.endCollection(withEnd: Date()) { (success, error) in
@@ -286,5 +250,4 @@ class WatchScreenController: WKInterfaceController, HKWorkoutSessionDelegate, HK
         }
     }
     
-  
 }

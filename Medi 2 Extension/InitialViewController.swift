@@ -24,25 +24,21 @@ class InitialViewController : WKInterfaceController{
     override func didAppear() {
         super.didAppear()
         
-    let typesToShare: Set = [
-        HKQuantityType.workoutType(),
-        HKQuantityType.categoryType(forIdentifier: .mindfulSession)!
-    ]
+        let typesToShare: Set = [
+            HKQuantityType.workoutType(),
+            HKQuantityType.categoryType(forIdentifier: .mindfulSession)!
+        ]
     
-    let typesToRead: Set = [
-        HKQuantityType.quantityType(forIdentifier: .heartRate)!,
-        HKQuantityType.categoryType(forIdentifier: .mindfulSession)!
+        let typesToRead: Set = [
+            HKQuantityType.quantityType(forIdentifier: .heartRate)!,
+            HKQuantityType.categoryType(forIdentifier: .mindfulSession)!
+        ]
         
-    ]
-        
-    healthStore.requestAuthorization(toShare: typesToShare, read: typesToRead) { (success, error) in
-        if let error = error {
-            print("Error requesting health kit authorization: \(error)")
+        healthStore.requestAuthorization(toShare: typesToShare, read: typesToRead) { (success, error) in
+            if let error = error {
+                print("Error requesting health kit authorization: \(error)")
+            }
         }
-    }
-        
-        
-        
     }
     
     // MARK: - Slider and Start
@@ -67,9 +63,9 @@ class InitialViewController : WKInterfaceController{
     }
     
     func TimeString(time:TimeInterval) -> String {
-    let minutes = Int(time) / 60 % 60
-    let seconds = Int(time) % 60
-    return String(format:"%02i:%02i", minutes, seconds)
+        let minutes = Int(time) / 60 % 60
+        let seconds = Int(time) % 60
+        return String(format:"%02i:%02i", minutes, seconds)
     }
     
     
